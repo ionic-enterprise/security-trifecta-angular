@@ -63,7 +63,8 @@ export class AuthenticationService {
   public async handleLogin() {
     const urlParams = new URLSearchParams(window.location.search);
     const queryEntries = (Object as any).fromEntries(urlParams.entries());    
-    this.result = await AuthConnect.handleLoginCallback(queryEntries);
+    // WN-1241 - providerOptions is optional but if you dont set it the logout method will fail
+    this.result = await AuthConnect.handleLoginCallback(queryEntries, this.getAuthOptions());
     await this.vaultService.set(this.result);
     this.routeService.goToRoot();
   }
