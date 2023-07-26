@@ -7,6 +7,7 @@ export async function checkAuthResult(authResult: AuthResult) {
         throw new Error(`authResult is empty`);
       }
     if (authResult.provider == undefined) {
+        alert('WN-1043 IS NOT FIXED YET. APPLYING A HACK TO GET PAST THE PROBLEM');
         authResult.provider = {
             options: webIonicAuthOptions,
             config: { url: '' },

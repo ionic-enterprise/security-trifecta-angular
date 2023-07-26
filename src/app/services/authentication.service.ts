@@ -23,7 +23,7 @@ export class AuthenticationService {
   public async init() {
     await AuthConnect.setup({
       platform: this.platform.is('hybrid') ? 'capacitor' : 'web',
-      logLevel: 'ERROR',
+      logLevel: 'NONE',
       ios: {
         webView: 'private',
         safariWebViewOptions: { 
@@ -62,7 +62,8 @@ export class AuthenticationService {
    */
   public async handleLogin() {
     const urlParams = new URLSearchParams(window.location.search);
-    this.result = await AuthConnect.handleLoginCallback({ code: urlParams.get('code')!, state: urlParams.get('state')! });
+    const queryEntries = (Object as any).fromEntries(urlParams.entries());    
+    this.result = await AuthConnect.handleLoginCallback(queryEntries);
     await this.vaultService.set(this.result);
     this.routeService.goToRoot();
   }
@@ -71,7 +72,7 @@ export class AuthenticationService {
    * Logout
    */
   public async logout() {
-    await checkAuthResult(this.result);
+    //await checkAuthResult(this.result);
 
     try {
       await AuthConnect.logout(this.azureB2CProvider(), this.result!);
