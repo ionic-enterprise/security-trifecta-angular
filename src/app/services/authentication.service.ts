@@ -62,8 +62,9 @@ export class AuthenticationService {
    */
   public async handleLogin() {
     const urlParams = new URLSearchParams(window.location.search);
-    const queryEntries = (Object as any).fromEntries(urlParams.entries());    
-    this.result = await AuthConnect.handleLoginCallback(queryEntries);
+    const queryEntries = (Object as any).fromEntries(urlParams.entries());
+    // WN-1241 - handleLoginCallback must set providerOptions
+    this.result = await AuthConnect.handleLoginCallback(queryEntries, this.getAuthOptions());    
     await this.vaultService.set(this.result);
     this.routeService.goToRoot();
   }
