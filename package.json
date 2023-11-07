@@ -10,6 +10,7 @@
     "appflow:build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
+    "deploy": "cd website && netlify deploy --prod --dir . && cd ..",
     "e2e": "ng e2e"
   },
   "private": true,
