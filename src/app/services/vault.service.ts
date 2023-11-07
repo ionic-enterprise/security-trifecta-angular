@@ -32,7 +32,7 @@ export class VaultService {
      */
     public async init() {
         if (Capacitor.getPlatform() === 'web') {
-            this.vault = new BrowserVault(this.config);
+            this.vault = new BrowserVault();
         } else {
             // If the device doesnt have biometrics the we'll use a Secure Storage Vault
             if (!await this.hasBiometrics()) {
@@ -43,8 +43,9 @@ export class VaultService {
                     deviceSecurityType: DeviceSecurityType.None
                 };
             }
-            this.vault = new Vault(this.config);
+            this.vault = new Vault();
         }
+        await this.vault.initialize(this.config);
 
         this.vault.onConfigChanged(() => {
             console.log('Vault configuration was changed', this.config);
