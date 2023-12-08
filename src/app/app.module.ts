@@ -13,7 +13,7 @@ import { KeyService } from './services/key.service';
 const appInitFactory =
   (vaultService: VaultService, keyService: KeyService): (() => Promise<void>) =>
   async () => {
-    vaultService.init();
+    await vaultService.init();
     keyService.init();
   }
 
