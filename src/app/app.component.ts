@@ -6,6 +6,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { StatusBar } from '@capacitor/status-bar';
 import { Platform } from '@ionic/angular';
 import { VaultService } from './services/vault.service';
+import { App, URLOpenListenerEvent } from '@capacitor/app';
 
 @Component({
   selector: 'app-root',
@@ -29,6 +30,9 @@ export class AppComponent {
   }
 
   async initializeApp() {
+    App.addListener('appUrlOpen', (event: URLOpenListenerEvent) => {
+      console.log(`appUrlOpen ${event}`);
+    });
     if (Capacitor.isNativePlatform()) {
       await StatusBar.hide();
       await SplashScreen.hide();

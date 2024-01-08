@@ -1,0 +1,22 @@
+[[redirects]]
+  from = "/.well-known/assetlinks.json"
+  to = "/well-known/assetlinks.json"
+  status = 200
+ [redirects.headers]
+    cache-control = "no-store"
+
+[[headers]]
+  for = "/well-known/assetlinks.json"
+  [headers.values]
+    Content-Type = "application/json"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+ [[headers]]
+  # Define which paths this specific [[headers]] block will cover.
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
