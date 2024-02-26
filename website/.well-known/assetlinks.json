@@ -7,7 +7,8 @@
             "namespace": "android_app",
             "package_name": "io.ionic.cs.appsummit",
             "sha256_cert_fingerprints": [
-                "1D:5F:56:BF:CF:93:09:6D:A6:2E:65:67:71:A1:86:E0:5C:B8:93:D0:D9:BA:2B:80:79:CA:86:3D:F9:1A:42:90"                
+                "1D:5F:56:BF:CF:93:09:6D:A6:2E:65:67:71:A1:86:E0:5C:B8:93:D0:D9:BA:2B:80:79:CA:86:3D:F9:1A:42:90",
+                "94:30:DA:93:39:64:39:B8:3D:B1:37:2A:D9:18:7C:56:74:C1:BB:B6:D4:56:D3:4F:26:75:A8:81:28:9A:88:B3"                
             ]
         }
     }

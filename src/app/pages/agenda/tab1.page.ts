@@ -7,6 +7,7 @@ import { Capacitor } from '@capacitor/core';
 import { PushNotificationService } from 'src/app/services/push-notification.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { CompanyService } from 'src/app/services/company.service';
+import { VaultService } from 'src/app/services/vault.service';
 
 @Component({
   selector: 'app-tab1',
@@ -20,11 +21,18 @@ export class Tab1Page implements OnInit {
     private modalController: ModalController,
     private pushNotificationService: PushNotificationService,
     private companyService: CompanyService,
+    private vault: VaultService,
     private storageService: StorageService) {
-    
+
   }
 
+  ionViewWillEnter() {
+    console.log('ngOnInit get vault')
+    this.vault.get().then((v) => { console.log(v);});
+  }
+  
   async ngOnInit() {
+    
     this.presentModal();
     await this.companyService.getCompanies();
     this.agenda = await this.agendaService.getAgenda();

@@ -23,15 +23,15 @@ export class AppComponent {
     this.initializeApp();
     this.platform.resume.subscribe(() => {
       console.log('PlatformResult.checkAuth', this.router.url);
-      setTimeout(() => {
+      //setTimeout(() => {
         this.checkAuth();
-      }, 300); // This gives time for the vault to be locked because the vault uses lockAfterBackgrounded feature
+      //}, 300); // This gives time for the vault to be locked because the vault uses lockAfterBackgrounded feature
     });
   }
 
   async initializeApp() {
     App.addListener('appUrlOpen', (event: URLOpenListenerEvent) => {
-      console.log(`appUrlOpen ${event}`);
+      console.log(`appUrlOpen`, event);      
     });
     if (Capacitor.isNativePlatform()) {
       await StatusBar.hide();

@@ -60,8 +60,9 @@ export class AuthenticationService {
    * Called for the web platform. Passes Auth Connect the auto info from query parameters
    * to get the auth object which we store and redirect to the home page
    */
-  public async handleLogin() {
+  public async handleLogin() {    
     const urlParams = new URLSearchParams(window.location.search);
+    console.log('handleLogin', urlParams)
     const queryEntries = (Object as any).fromEntries(urlParams.entries());    
     // WN-1241 - providerOptions is optional but if you dont set it the logout method will fail
     this.result = await AuthConnect.handleLoginCallback(queryEntries, this.getAuthOptions());
