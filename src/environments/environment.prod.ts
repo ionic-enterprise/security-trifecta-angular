@@ -6,7 +6,7 @@ import { ProviderOptions } from '@ionic-enterprise/auth';
 
 export const environment = {
   production: true,
-  baseUrl: 'https://ionic-app-summit.netlify.app'
+  baseUrl: 'https://trifecta.nexusconcepts.com'
 };
 
 export const nativeIonicAuthOptions: ProviderOptions = {
@@ -18,11 +18,11 @@ export const nativeIonicAuthOptions: ProviderOptions = {
   // OpenID configuration
   discoveryUrl: 'https://ioniccs.b2clogin.com/ioniccs.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_SignUp',
   // the URI to redirect to after log in
-  redirectUri: 'https://trifecta.nexusconcepts.com/login',
+  redirectUri: 'https://trifecta.nexusconcepts.com/auth-transition',
   // requested scopes from provider
   scope: 'openid offline_access email profile https://ioniccs.onmicrosoft.com/5a5ef942-0e44-46a8-bbac-6a8ba7654eb0/user_impersonation',
   // the URL to redirect to after log out
-  logoutUrl: 'https://trifecta.nexusconcepts.com/login',
+  logoutUrl: 'https://trifecta.nexusconcepts.com/auth-transition#logout',
 };
 
 export const webIonicAuthOptions: ProviderOptions = {
