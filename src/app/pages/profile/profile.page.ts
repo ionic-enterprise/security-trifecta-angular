@@ -25,7 +25,11 @@ export class ProfilePage implements OnInit {
 
   async ionViewDidEnter() {
     const token = await this.authService.getAccessToken();
+    console.log('access token', token);
+
     const data: any = await this.authService.decodeToken();
+    const isExpired = (Date.now() >= data.exp * 1000);
+    console.log(`Expired ${isExpired}`);
     this.name = `${data.given_name} ${data.family_name}`;
     this.id = data.sub;
     console.log(data);
