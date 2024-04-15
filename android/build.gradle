@@ -24,6 +24,11 @@ allprojects {
     }
 }
 
+ext {
+  AUTH_URL_HOST = "trifecta.nexusconcepts.com"
+  AUTH_URL_PATH_PREFIX = ""
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
