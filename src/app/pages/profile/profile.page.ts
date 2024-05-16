@@ -15,6 +15,8 @@ export class ProfilePage implements OnInit {
   public name: string;
   public id: string;
 
+  volume: number = 50;
+
   constructor(public modalController: ModalController,
     private authService: AuthenticationService,
     private vaultService: VaultService,
@@ -67,5 +69,9 @@ export class ProfilePage implements OnInit {
     });
 
     await toast.present();
+  }
+
+  test() {
+    alert(`Volume: ${this.volume}`);
   }
 }

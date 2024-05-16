@@ -12,7 +12,9 @@
     </ion-text>
     <ion-spinner *ngIf="busy" color="dark" name="crescent"></ion-spinner>
     <div class="buttons">
-      <ion-button *ngIf="!busy" (click)="signIn()" mode="ios" color="dark" fill="outline" size="large">Sign In /
+      <ion-button id="loginBtn" *ngIf="!busy" (click)="signIn()" mode="ios" color="dark" fill="outline"
+        size="large">Sign In
+        /
         Up</ion-button>
     </div>
   </div>

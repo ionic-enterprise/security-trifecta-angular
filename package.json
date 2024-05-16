@@ -11,7 +11,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "deploy": "netlify deploy --prod --dir=website",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "e2e:develop": "SERVE_PORT=3000 TS_NODE_PROJECT=test/tsconfig.json  wdio test/config/wdio.web.config.ts --watch",
+    "e2e:run:android": "TS_NODE_PROJECT=test/tsconfig.json  wdio test/config/wdio.android.config.ts",
+    "e2e:run:web": "TS_NODE_PROJECT=test/tsconfig.json  wdio test/config/wdio.web.config.ts",
+    "e2e:run:ios": "TS_NODE_PROJECT=test/tsconfig.json  wdio test/config/wdio.ios.config.ts"
   },
   "private": true,
   "dependencies": {
@@ -37,6 +41,7 @@
     "@ionic-enterprise/identity-vault": "5.12.1",
     "@ionic-enterprise/secure-storage": "3.0.2",
     "@ionic/angular": "7.6.3",
+    "chromedriver": "^124.0.3",
     "rxjs": "7.8.0",
     "tslib": "2.4.1",
     "zone.js": "^0.13.3"
@@ -59,6 +64,12 @@
     "@types/node": "12.20.55",
     "@typescript-eslint/eslint-plugin": "4.33.0",
     "@typescript-eslint/parser": "4.33.0",
+    "@wdio/appium-service": "^8.36.1",
+    "@wdio/cli": "^8.36.1",
+    "@wdio/local-runner": "^8.36.1",
+    "@wdio/mocha-framework": "^8.36.1",
+    "@wdio/spec-reporter": "^8.36.1",
+    "appium-xcuitest-driver": "^7.15.2",
     "eslint": "^7.6.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-jsdoc": "30.7.13",
@@ -71,8 +82,10 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "4.0.2",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "ts-node": "8.10.2",
-    "typescript": "5.1.6"
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "5.1.6",
+    "wdio-chromedriver-service": "^8.1.1"
   },
   "description": "Conference App",
   "browserslist": [
