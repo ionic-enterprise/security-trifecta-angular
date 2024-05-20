@@ -16,6 +16,7 @@ export class ProfilePage implements OnInit {
   public id: string;
 
   volume: number = 50;
+  testBtnDisabled: boolean = true;
 
   constructor(public modalController: ModalController,
     private authService: AuthenticationService,

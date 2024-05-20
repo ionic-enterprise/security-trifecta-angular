@@ -16,12 +16,13 @@ describe('Login', () => {
         expect($('#title')).toHaveText('Profile');
     });
 
-    it('Volume should be 60', async () => {
-        await browser.execute('document.getElementById("volumeRange").value = 60');
+    it('Volume should be 75', async () => {
+        await browser.execute('document.getElementById("volumeRange").value = 75');
+        (await $('#volumeRange')).click();
         const val = await $('#volumeRange').getValue();
         console.log(val);
         await $('#testBtn').click();
-        expect(val).toEqual(60);
+        expect(val).toEqual(75);
     });
 
 });
