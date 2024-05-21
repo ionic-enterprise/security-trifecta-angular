@@ -15,13 +15,13 @@ config.capabilities = [
     // For W3C the appium capabilities need to have an extension prefix
     // http://appium.io/docs/en/writing-running-appium/caps/
     // This is `appium:` for all Appium Capabilities which can be found here
-    'appium:deviceName': 'Pixel_3_API_31',
+    'appium:deviceName': 'R58M96W3CMD',
     'appium:platformVersion': '12',
     'appium:orientation': 'PORTRAIT',
     'appium:automationName': 'UiAutomator2',
     // The path to the app
     'appium:app': 'android/app/build/outputs/apk/debug/app-debug.apk',
-    'appium:appWaitActivity': 'io.ionic.starter.MainActivity',
+    'appium:appWaitActivity': 'io.ionic.cs.appsummit.MainActivity',
     'appium:newCommandTimeout': 240,
     // This will automatically start the iOS app in a webview context,
     // if your app starts in a native context then please put this to false and handle your own

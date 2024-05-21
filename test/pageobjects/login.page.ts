@@ -30,6 +30,9 @@ class LoginPage extends Page {
      */
     public async login(username: string, password: string) {
         await this.loginBtn.click();
+        const ctx = await driver.getContexts();
+        console.log('contexts', ctx);
+        driver.switchContext('WEBVIEW_chrome');
         await this.inputUsername.setValue(username);
         await this.inputPassword.setValue(password);
         await this.NextBtn.click();

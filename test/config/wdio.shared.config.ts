@@ -14,8 +14,8 @@ export const config: WebdriverIO.Config = {
     }
   },
   baseUrl: process.env.SERVE_PORT
-    ? `http://localhost:${process.env.SERVE_PORT}`
-    : 'http://localhost:8100',
+    ? `https://localhost:${process.env.SERVE_PORT}`
+    : 'https://localhost:8100',
   //
   // ====================
   // Runner Configuration

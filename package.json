@@ -69,7 +69,7 @@
     "@wdio/local-runner": "^8.36.1",
     "@wdio/mocha-framework": "^8.36.1",
     "@wdio/spec-reporter": "^8.36.1",
-    "appium-xcuitest-driver": "^7.15.2",
+    "appium-xcuitest-driver": "7.15.3",
     "eslint": "^7.6.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-jsdoc": "30.7.13",
