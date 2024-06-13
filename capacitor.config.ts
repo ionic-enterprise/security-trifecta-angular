@@ -1,7 +1,7 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.conferences.eas2021',
+  appId: 'io.ionic.cs.trifecta',
   appName: 'EAS 21',
   webDir: 'www',
 };

@@ -10,6 +10,24 @@
   [headers.values]
     Content-Type = "application/json"
 
+[[headers]]
+  for = "/apple-app-site-association"
+  [headers.values]
+  Cache-Control = '''
+      public,
+      max-age=0'''
+  Content-Type = "application/json"
+  X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/.well-known/apple-app-site-association"
+  [headers.values]
+  Cache-Control = '''
+      public,
+      max-age=0'''
+  Content-Type = "application/json"
+  X-Content-Type-Options = "nosniff"    
+
 [[redirects]]
   from = "/*"
   to = "/index.html"

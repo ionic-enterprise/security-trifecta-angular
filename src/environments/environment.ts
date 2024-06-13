@@ -10,17 +10,17 @@ export const environment = {
 };
 
 export const nativeIonicAuthOptions: ProviderOptions = {
-  audience: 'https://audience.my-app.com',
+  audience: '',
 
   // client or application id for provider
-  clientId: '5a5ef942-0e44-46a8-bbac-6a8ba7654eb0',
+  clientId: '0oaur4c907I5uMr4I0h7',
   // the discovery url for the provider
   // OpenID configuration
-  discoveryUrl: 'https://ioniccs.b2clogin.com/ioniccs.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_SignUp',
+  discoveryUrl: 'https://dev-622807.oktapreview.com/.well-known/openid-configuration',
   // the URI to redirect to after log in
   redirectUri: 'https://trifecta.nexusconcepts.com/login',
   // requested scopes from provider
-  scope: 'openid offline_access email profile https://ioniccs.onmicrosoft.com/5a5ef942-0e44-46a8-bbac-6a8ba7654eb0/user_impersonation',
+  scope: 'openid email profile offline_access',
   // the URL to redirect to after log out
   logoutUrl: 'https://trifecta.nexusconcepts.com/login',
 };
@@ -29,14 +29,14 @@ export const webIonicAuthOptions: ProviderOptions = {
   audience: 'https://audience.my-app.com',
 
   // client or application id for provider
-  clientId: '5a5ef942-0e44-46a8-bbac-6a8ba7654eb0',
+  clientId: '0oaur4c907I5uMr4I0h7',
   // the discovery url for the provider
   // OpenID configuration
-  discoveryUrl: 'https://ioniccs.b2clogin.com/ioniccs.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_SignUp',
+  discoveryUrl: 'https://dev-622807.oktapreview.com/.well-known/openid-configuration',
   // the URI to redirect to after log in
   redirectUri: 'http://localhost:8100/auth-transition',
   // requested scopes from provider
-  scope: 'openid offline_access email profile https://ioniccs.onmicrosoft.com/5a5ef942-0e44-46a8-bbac-6a8ba7654eb0/user_impersonation',
+  scope: 'openid email profile offline_access',
   // the URL to redirect to after log out
   logoutUrl: 'http://localhost:8100/auth-transition#logout'
 };

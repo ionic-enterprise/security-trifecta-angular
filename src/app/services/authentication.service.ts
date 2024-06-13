@@ -26,17 +26,20 @@ export class AuthenticationService {
       logLevel: 'NONE',
       ios: {
         webView: 'private',
-        safariWebViewOptions: { 
-          dismissButtonStyle: 'close', 
-          preferredBarTintColor: '#FFFFFF', 
-          preferredControlTintColor: '#333333' }
+        safariWebViewOptions: {
+          dismissButtonStyle: 'close',
+          preferredBarTintColor: '#FFFFFF',
+          preferredControlTintColor: '#333333'
+        }
       },
-      android: { 
-        isAnimated: false, 
-        showDefaultShareMenuItem: false },
-      web: { 
-        uiMode: 'current', 
-        authFlow: 'PKCE' }
+      android: {
+        isAnimated: false,
+        showDefaultShareMenuItem: false
+      },
+      web: {
+        uiMode: 'current',
+        authFlow: 'PKCE'
+      }
     });
 
     try {
@@ -62,7 +65,7 @@ export class AuthenticationService {
    */
   public async handleLogin() {
     const urlParams = new URLSearchParams(window.location.search);
-    const queryEntries = (Object as any).fromEntries(urlParams.entries());    
+    const queryEntries = (Object as any).fromEntries(urlParams.entries());
     // WN-1241 - providerOptions is optional but if you dont set it the logout method will fail
     this.result = await AuthConnect.handleLoginCallback(queryEntries, this.getAuthOptions());
     await this.vaultService.set(this.result);
@@ -85,7 +88,7 @@ export class AuthenticationService {
 
   public async isAuthenticated(): Promise<boolean> {
     try {
-      const authResult = await this.vaultService.get();
+      const authResult: AuthResult = await this.vaultService.get();
       if (!authResult) {
         return false;
       }

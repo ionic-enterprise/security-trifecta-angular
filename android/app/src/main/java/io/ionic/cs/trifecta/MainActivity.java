@@ -1,4 +1,4 @@
-package io.ionic.cs.appsummit;
+package io.ionic.cs.trifecta;
 
 import com.getcapacitor.BridgeActivity;
 
