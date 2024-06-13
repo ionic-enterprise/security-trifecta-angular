@@ -10,26 +10,30 @@ const routes: Routes = [
   },
   {
     path: 'sponsors',
-    loadChildren: () => import('./pages/sponsors/sponsors.module').then( m => m.SponsorsPageModule),
+    loadChildren: () => import('./pages/sponsors/sponsors.module').then(m => m.SponsorsPageModule),
     canActivate: [AuthGuardService]
   },
   {
     path: 'profile',
-    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule),
+    loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfilePageModule),
     canActivate: [AuthGuardService]
   },
   {
     path: 'swag-modal',
-    loadChildren: () => import('./components/swag-modal/swag-modal.module').then( m => m.SwagModalPageModule),
+    loadChildren: () => import('./components/swag-modal/swag-modal.module').then(m => m.SwagModalPageModule),
     canActivate: [AuthGuardService]
   },
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
   },
   {
     path: 'auth-transition',
-    loadChildren: () => import('./pages/auth-transition/auth-transition.module').then( m => m.AuthTransitionPageModule)
+    loadChildren: () => import('./pages/auth-transition/auth-transition.module').then(m => m.AuthTransitionPageModule)
+  },
+  {
+    path: 'logging-out',
+    loadChildren: () => import('./pages/logging-out/logging-out.module').then(m => m.LoggingOutPageModule)
   }
 ];
 

@@ -3,11 +3,11 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { RouteService } from 'src/app/services/route.service';
 
 @Component({
-  selector: 'app-auth-transition',
-  templateUrl: './auth-transition.page.html',
-  styleUrls: ['./auth-transition.page.scss'],
+  selector: 'app-logging-out',
+  templateUrl: './logging-out.page.html',
+  styleUrls: ['./logging-out.page.scss'],
 })
-export class AuthTransitionPage implements OnInit {
+export class LoggingOutPage implements OnInit {
 
   constructor(private routeService: RouteService, private auth: AuthenticationService) { }
 
@@ -16,9 +16,8 @@ export class AuthTransitionPage implements OnInit {
 
   async ionViewDidEnter() {
     try {
-      console.log('auth transition > login');
-      await this.auth.handleLogin();
-
+      console.log('logging out > login')
+      this.routeService.returnToLogin();
     } catch (error) {
       console.error(error);
     }

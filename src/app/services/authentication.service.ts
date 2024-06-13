@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AuthConnect, AuthResult, AzureProvider, ProviderOptions, TokenType } from '@ionic-enterprise/auth';
+import { AuthConnect, AuthResult, OktaProvider, ProviderOptions, TokenType } from '@ionic-enterprise/auth';
 import { Platform } from '@ionic/angular';
 import { nativeIonicAuthOptions, webIonicAuthOptions } from '../../environments/environment';
 import { RouteService } from './route.service';
@@ -54,7 +54,7 @@ export class AuthenticationService {
    * Login
    */
   public async login() {
-    this.result = await AuthConnect.login(this.azureB2CProvider(), this.getAuthOptions());
+    this.result = await AuthConnect.login(this.oktaProvider(), this.getAuthOptions());
     await this.vaultService.set(this.result);
     this.routeService.goToRoot();
   }
@@ -79,7 +79,7 @@ export class AuthenticationService {
     //await checkAuthResult(this.result);
 
     try {
-      await AuthConnect.logout(this.azureB2CProvider(), this.result!);
+      await AuthConnect.logout(this.oktaProvider(), this.result!);
     } catch (error) {
       console.error('AuthConnect.logout', error);
     }
@@ -102,7 +102,7 @@ export class AuthenticationService {
         return true;
       }
 
-      const newAuthResult = await AuthConnect.refreshSession(this.azureB2CProvider(), authResult);
+      const newAuthResult = await AuthConnect.refreshSession(this.oktaProvider(), authResult);
       await this.vaultService.set(newAuthResult);
       return true;
     } catch (e) {
@@ -120,8 +120,8 @@ export class AuthenticationService {
     return AuthConnect.decodeToken(TokenType.id, this.result!);
   }
 
-  private azureB2CProvider(): AzureProvider {
-    return new AzureProvider();
+  private oktaProvider(): OktaProvider {
+    return new OktaProvider();
   }
 
   private getAuthOptions(): ProviderOptions {

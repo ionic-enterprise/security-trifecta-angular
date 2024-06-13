@@ -18,11 +18,11 @@ export const nativeIonicAuthOptions: ProviderOptions = {
   // OpenID configuration
   discoveryUrl: 'https://dev-622807.oktapreview.com/.well-known/openid-configuration',
   // the URI to redirect to after log in
-  redirectUri: 'https://trifecta.nexusconcepts.com/login',
+  redirectUri: 'https://trifecta.nexusconcepts.com/auth-transition',
   // requested scopes from provider
   scope: 'openid email profile offline_access',
   // the URL to redirect to after log out
-  logoutUrl: 'https://trifecta.nexusconcepts.com/login',
+  logoutUrl: 'https://trifecta.nexusconcepts.com/logging-out',
 };
 
 export const webIonicAuthOptions: ProviderOptions = {
