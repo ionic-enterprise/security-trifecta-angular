@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthConnect, AuthResult, OktaProvider, ProviderOptions, TokenType } from '@ionic-enterprise/auth';
 import { Platform } from '@ionic/angular';
-import { nativeIonicAuthOptions, webIonicAuthOptions } from '../../environments/environment';
+import { nativeIonicAuthOptions, urlSchemeIonicAuthOptions, webIonicAuthOptions } from '../../environments/environment';
 import { RouteService } from './route.service';
 import { VaultService } from './vault.service';
 import { checkAuthResult } from './util';
@@ -125,7 +125,10 @@ export class AuthenticationService {
   }
 
   private getAuthOptions(): ProviderOptions {
-    return this.platform.is('hybrid') ? nativeIonicAuthOptions : webIonicAuthOptions;
+    return this.platform.is('hybrid') ?
+      //urlSchemeIonicAuthOptions :      
+      nativeIonicAuthOptions :
+      webIonicAuthOptions;
   }
 
 }
