@@ -3,7 +3,6 @@
   <string name="app_name">Conference App</string>
   <string name="title_activity_main">Conference App</string>
   <string name="package_name">io.ionic.cs.trifecta</string>
-  <string name="custom_url_scheme">io.ionic.cs.trifecta</string>
   <string name="ionic_app_id">60e11038</string>
   <string name="ionic_channel_name">Production</string>
   <string name="ionic_update_method">background</string>
