@@ -33,7 +33,7 @@
     "@capacitor/push-notifications": "5.1.0",
     "@capacitor/splash-screen": "^5.0.0",
     "@capacitor/status-bar": "^5.0.0",
-    "@ionic-enterprise/auth": "5.1.2",
+    "@ionic-enterprise/auth": "5.1.4-dev-20240412T164838.0",
     "@ionic-enterprise/identity-vault": "5.12.1",
     "@ionic-enterprise/secure-storage": "3.0.2",
     "@ionic/angular": "7.6.3",

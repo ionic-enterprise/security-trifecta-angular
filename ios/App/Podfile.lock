@@ -69,7 +69,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.11.1):
     - GoogleUtilities/Logger
-  - IonicEnterpriseAuth (5.1.2):
+  - IonicEnterpriseAuth (5.1.4-dev-20240412T164838.0):
     - Capacitor
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
@@ -160,11 +160,11 @@ SPEC CHECKSUMS:
   FirebaseMessaging: 06253e9669434df0a40718fc82a90c78090f4704
   GoogleDataTransport: f0308f5905a745f94fb91fea9c6cbaf3831cb1bd
   GoogleUtilities: 9aa0ad5a7bc171f8bae016300bfcfa3fb8425749
-  IonicEnterpriseAuth: c73b149efdd27afebe2a308449221accc3f02df3
+  IonicEnterpriseAuth: 621d301d42b31cf311451ca7dcd92b664c1281b7
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
   SQLCipher: 905b145f65f349f26da9e60a19901ad24adcd381
 
 PODFILE CHECKSUM: 2d601e3e6bbab999acdfc51e7fdaf19eda544928
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2

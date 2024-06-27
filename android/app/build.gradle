@@ -10,7 +10,7 @@ android {
         versionCode 3
         versionName "1.1"
         manifestPlaceholders = [
-            'AUTH_URL_SCHEME': 'ionic.cs.appsummit'
+            'AUTH_URL_SCHEME': 'ionic.cs.appsummit',            
         ]
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
