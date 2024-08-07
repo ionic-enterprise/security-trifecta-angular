@@ -126,8 +126,8 @@ export class AuthenticationService {
 
   private getAuthOptions(): ProviderOptions {
     return this.platform.is('hybrid') ?
-      //urlSchemeIonicAuthOptions :      
-      nativeIonicAuthOptions :
+      urlSchemeIonicAuthOptions :
+      //nativeIonicAuthOptions :
       webIonicAuthOptions;
   }
 

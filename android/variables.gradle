@@ -13,4 +13,5 @@ ext {
     androidxEspressoCoreVersion = '3.5.1'
     cordovaAndroidVersion = '10.1.1'
     androidxWebkitVersion = '1.9.0'
+    AUTH_URL_SCHEME = 'ionic.cs.appsummit'
 }
