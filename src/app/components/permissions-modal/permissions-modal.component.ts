@@ -6,6 +6,7 @@ import { PushNotificationService } from 'src/app/services/push-notification.serv
   selector: 'app-permissions-modal',
   templateUrl: './permissions-modal.component.html',
   styleUrls: ['./permissions-modal.component.scss'],
+  standalone: false,
 })
 export class PermissionsModalComponent {
   constructor(

@@ -4,6 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: 'app-agenda-avatars',
   templateUrl: './agenda-avatars.component.html',
   styleUrls: ['./agenda-avatars.component.scss'],
+  standalone: false,
 })
 export class AgendaAvatarsComponent {
   @Input() urls: string[] = [];

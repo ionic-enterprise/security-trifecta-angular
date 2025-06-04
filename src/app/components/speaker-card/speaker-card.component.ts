@@ -9,6 +9,7 @@ import { CompanyService } from '../../services/company.service';
   selector: 'app-speaker-card',
   templateUrl: './speaker-card.component.html',
   styleUrls: ['./speaker-card.component.scss'],
+  standalone: false,
 })
 export class SpeakerCardComponent implements OnInit {
   @Input() id: number;
@@ -21,7 +22,7 @@ export class SpeakerCardComponent implements OnInit {
   constructor(
     private speakerService: SpeakerService,
     private companyService: CompanyService,
-    private modalController: ModalController
+    private modalController: ModalController,
   ) {}
 
   ngOnInit() {
@@ -37,11 +38,10 @@ export class SpeakerCardComponent implements OnInit {
     const modal = await this.modalController.create({
       component: SpeakerViewComponent,
       componentProps: {
-        id: this.id
-      }
+        id: this.id,
+      },
     });
 
     modal.present();
   }
-
 }

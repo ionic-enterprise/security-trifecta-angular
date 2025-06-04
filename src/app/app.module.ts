@@ -1,4 +1,4 @@
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { NgModule, inject, provideAppInitializer } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { KeyValueStorage } from '@ionic-enterprise/secure-storage/ngx';
@@ -15,15 +15,20 @@ const appInitFactory =
   async () => {
     await vaultService.init();
     keyService.init();
-  }
+  };
 
 @NgModule({
-    declarations: [AppComponent],
-    imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
-    providers: [
-        { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-        { provide: APP_INITIALIZER, useFactory: appInitFactory, deps: [VaultService, KeyService], multi: true },
-        AuthGuardService, KeyValueStorage],
-    bootstrap: [AppComponent]
+  declarations: [AppComponent],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule],
+  providers: [
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    provideAppInitializer(() => {
+      const initializerFn = appInitFactory(inject(VaultService), inject(KeyService));
+      return initializerFn();
+    }),
+    AuthGuardService,
+    KeyValueStorage,
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

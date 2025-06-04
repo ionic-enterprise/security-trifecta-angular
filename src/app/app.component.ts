@@ -12,6 +12,7 @@ import { App, URLOpenListenerEvent } from '@capacitor/app';
   selector: 'app-root',
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
+  standalone: false,
 })
 export class AppComponent {
   constructor(
@@ -19,7 +20,8 @@ export class AppComponent {
     private router: Router,
     private vaultService: VaultService,
     private platform: Platform,
-    private ngZone: NgZone) {
+    private ngZone: NgZone,
+  ) {
     this.initializeApp();
     this.platform.resume.subscribe(() => {
       console.log('PlatformResult.checkAuth', this.router.url);
@@ -55,7 +57,7 @@ export class AppComponent {
     }
     try {
       // This will trigger a check of the vault and ensure we are authenticated
-      if (!await this.auth.isAuthenticated()) {
+      if (!(await this.auth.isAuthenticated())) {
         this.routeToLogin();
       }
     } catch (error) {

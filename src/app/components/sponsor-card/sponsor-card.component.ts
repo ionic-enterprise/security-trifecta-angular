@@ -7,6 +7,7 @@ import { Browser } from '@capacitor/browser';
   selector: 'app-sponsor-card',
   templateUrl: './sponsor-card.component.html',
   styleUrls: ['./sponsor-card.component.scss'],
+  standalone: false,
 })
 export class SponsorCardComponent implements OnInit {
   @Input() id: number;
@@ -14,16 +15,13 @@ export class SponsorCardComponent implements OnInit {
 
   public sponsor: Sponsor;
 
-  constructor(
-    private sponsorService: SponsorService
-  ) { }
+  constructor(private sponsorService: SponsorService) {}
 
   async ngOnInit() {
     this.sponsor = await this.sponsorService.getSponsor(this.id);
   }
 
   async openLink(link: string) {
-    await Browser.open({ url: link});
+    await Browser.open({ url: link });
   }
-
 }

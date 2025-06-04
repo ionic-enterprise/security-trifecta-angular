@@ -9,6 +9,7 @@ import { AgendaItem, Speaker } from '../../types';
   selector: 'app-agenda-card',
   templateUrl: './agenda-card.component.html',
   styleUrls: ['./agenda-card.component.scss'],
+  standalone: false,
 })
 export class AgendaCardComponent implements OnInit {
   @Input() id: number;
@@ -21,13 +22,13 @@ export class AgendaCardComponent implements OnInit {
     private agendaService: AgendaService,
     private speakerService: SpeakerService,
     private companyService: CompanyService,
-    private router: Router
+    private router: Router,
   ) {}
 
   async ngOnInit() {
     this.agenda = await this.agendaService.getAgendaItem(this.id);
     this.speakers = await this.speakerService.getSpeakers(this.agenda.speakerIds);
-    this.photoUrls = this.speakers.map(speaker => speaker.photoUrl);
+    this.photoUrls = this.speakers.map((speaker) => speaker.photoUrl);
   }
 
   navigateToAgendaItemPage() {

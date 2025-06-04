@@ -6,6 +6,7 @@ import { VaultService } from 'src/app/services/vault.service';
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
+  standalone: false,
 })
 export class LoginPage {
   public busy = false;

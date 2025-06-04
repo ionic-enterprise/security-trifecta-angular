@@ -7,6 +7,7 @@ import { Sponsor } from '../../types';
   selector: 'app-sponsor-view',
   templateUrl: './sponsor-view.component.html',
   styleUrls: ['./sponsor-view.component.scss'],
+  standalone: false,
 })
 export class SponsorViewComponent implements OnInit {
   @Input() id: number;
@@ -15,8 +16,8 @@ export class SponsorViewComponent implements OnInit {
 
   constructor(
     private sponsorService: SponsorService,
-    private modalController: ModalController
-  ) { }
+    private modalController: ModalController,
+  ) {}
 
   async ngOnInit() {
     this.sponsor = await this.sponsorService.getSponsor(this.id);
@@ -25,5 +26,4 @@ export class SponsorViewComponent implements OnInit {
   closeModal() {
     this.modalController.dismiss();
   }
-
 }

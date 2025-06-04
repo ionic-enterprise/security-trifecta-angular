@@ -6,11 +6,12 @@ import { Speaker } from '../../types';
   selector: 'app-speakers',
   templateUrl: './speakers.page.html',
   styleUrls: ['./speakers.page.scss'],
+  standalone: false,
 })
 export class SpeakersPage implements OnInit {
   public speakers: Speaker[] = [];
 
-  constructor(private speakerService: SpeakerService) { }
+  constructor(private speakerService: SpeakerService) {}
 
   async ngOnInit() {
     this.speakers = await this.speakerService.getSpeakers();

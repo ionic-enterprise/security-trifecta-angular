@@ -8,6 +8,7 @@ import { HubspotFormData } from '../../types';
   selector: 'app-swag-modal',
   templateUrl: './swag-modal.page.html',
   styleUrls: ['./swag-modal.page.scss'],
+  standalone: false,
 })
 export class SwagModalPage {
   @ViewChild('hubspotForm') hubspotForm: NgForm;
@@ -17,19 +18,19 @@ export class SwagModalPage {
 
   constructor(
     private hubspotService: HubspotService,
-    private modalController: ModalController
+    private modalController: ModalController,
   ) {
     this.states = hubspotService.getStates();
-   }
-
-
+  }
 
   submitForm() {
     this.hubspotForm.onSubmit(undefined);
   }
 
   public async onSubmit() {
-    if (!this.hubspotForm.valid) { return; };
+    if (!this.hubspotForm.valid) {
+      return;
+    }
 
     const success = await this.hubspotService.submitToHubspot(this.hubspotData);
 

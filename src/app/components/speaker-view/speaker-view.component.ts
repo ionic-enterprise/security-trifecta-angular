@@ -8,6 +8,7 @@ import { Browser } from '@capacitor/browser';
   selector: 'app-speaker-view',
   templateUrl: './speaker-view.component.html',
   styleUrls: ['./speaker-view.component.scss'],
+  standalone: false,
 })
 export class SpeakerViewComponent implements OnInit {
   @Input() id: number;
@@ -16,8 +17,8 @@ export class SpeakerViewComponent implements OnInit {
 
   constructor(
     private speakerService: SpeakerService,
-    private modalController: ModalController
-  ) { }
+    private modalController: ModalController,
+  ) {}
 
   ngOnInit() {
     this.speaker = this.speakerService.getSpeaker(this.id);
@@ -28,7 +29,6 @@ export class SpeakerViewComponent implements OnInit {
   }
 
   async openLink(link: string) {
-    await Browser.open({ url: link});
+    await Browser.open({ url: link });
   }
-
 }

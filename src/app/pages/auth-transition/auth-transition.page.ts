@@ -6,6 +6,7 @@ import { RouteService } from 'src/app/services/route.service';
   selector: 'app-auth-transition',
   templateUrl: './auth-transition.page.html',
   styleUrls: ['./auth-transition.page.scss'],
+  standalone: false,
 })
 export class AuthTransitionPage {
   constructor(

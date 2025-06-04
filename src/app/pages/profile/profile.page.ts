@@ -8,6 +8,7 @@ import { SwagModalPage } from '../../components/swag-modal/swag-modal.page';
   selector: 'app-swag',
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
+  standalone: false,
 })
 export class ProfilePage {
   public name: string;

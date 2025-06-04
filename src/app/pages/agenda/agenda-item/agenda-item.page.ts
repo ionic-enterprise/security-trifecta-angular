@@ -12,6 +12,7 @@ import { AgendaItem, Speaker } from '../../../types';
   selector: 'app-agenda-item',
   templateUrl: './agenda-item.page.html',
   styleUrls: ['./agenda-item.page.scss'],
+  standalone: false,
 })
 export class AgendaItemPage implements OnInit {
   public agendaItem: AgendaItem;

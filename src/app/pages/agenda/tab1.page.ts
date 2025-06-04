@@ -11,18 +11,19 @@ import { CompanyService } from 'src/app/services/company.service';
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
-  styleUrls: ['tab1.page.scss']
+  styleUrls: ['tab1.page.scss'],
+  standalone: false,
 })
 export class Tab1Page implements OnInit {
   public agenda: AgendaItem[] = [];
 
-  constructor(private agendaService: AgendaService,
+  constructor(
+    private agendaService: AgendaService,
     private modalController: ModalController,
     private pushNotificationService: PushNotificationService,
     private companyService: CompanyService,
-    private storageService: StorageService) {
-    
-  }
+    private storageService: StorageService,
+  ) {}
 
   async ngOnInit() {
     this.presentModal();
@@ -43,8 +44,7 @@ export class Tab1Page implements OnInit {
       if (permStatus === 'granted') {
         // On Android, permission is granted automatically
         await this.pushNotificationService.registerPush();
-      }
-      else if (permStatus === 'prompt' && !(await this.storageService.getPushNotesModalShown())) {
+      } else if (permStatus === 'prompt' && !(await this.storageService.getPushNotesModalShown())) {
         // On iOS, ask the user for permission first. only once.
         await this.storageService.setPushNotesModalShown();
 
@@ -52,7 +52,7 @@ export class Tab1Page implements OnInit {
           component: PermissionsModalComponent,
           initialBreakpoint: 1,
           breakpoints: [0, 1],
-          cssClass: 'permissions-modal'
+          cssClass: 'permissions-modal',
         });
         return await modal.present();
       }
