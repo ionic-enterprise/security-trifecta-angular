@@ -5,21 +5,23 @@ This is a sample application demonstrating the combination of Auth Connect, Iden
 ## TLDR
 
 If you like the way authentication is handled in this app and would like to copy paste your way to freedom:
+
 - [authentication.service.ts](src/app/services/authentication.service.ts) - Setup of Ionic Auth Connect with an authentication provider
 - [vault.service.ts](src/app/services/vault.service.ts) - Setup of Ionic Identity Vault to support secure encryption of the auth token using biometrics
-- [auth-guard.service.ts](src/app/services/auth-guard.service.ts) - Checks authentication when routing to a page
+- [auth.guard.ts](src/app/services/auth.guard.ts) - Checks authentication when routing to a page
 - [key.service.ts](src/app/services/key.service.ts) - Stores a unique ID which is used to encrypt our Secure Storage
 - [api.service.ts](src/app/services/api.service.ts) - Gets responses from our API and caches results in Secure Storage
-- [app-routing.module.ts](src/app/app-routing.module.ts) - The configuration of which routes are protected by the auth guard
+- [app.routes.ts](src/app/app.routes.ts) - The configuration of which routes are protected by the auth guard
 - [app.component.ts](src/app/app.component.ts) - Authentication is checked on startup and resume
-- [app.module.ts](src/app/app.module.ts) - Demonstrates initialization of the Vault before anything else can use the token
+- [main.ts](src/main.ts) - Demonstrates initialization of the Vault before anything else can use the token
 - [environment.ts](src/environments/environment.ts) - Configuration of the authentication provider
 
 Interested to know more? read on....
 
-
 ## Android Example
+
 This recorded Android video shows:
+
 - Login provided by Azure B2C (could be almost any OIDC provider)
 - Login page is customized in Azure B2C portal
 - Login page uses the devices default password manager (in this case it is 1password)
@@ -30,6 +32,7 @@ This recorded Android video shows:
 https://user-images.githubusercontent.com/84595830/167924999-17fd018a-2319-4512-98bd-cd42127421d0.mp4
 
 Important Points:
+
 - The password manager and login page is secured by the device
 - The OIDC login page captures cookies so a session is active until logged out (ie subsequent login attempts automatically pass back a token)
 - In our code we are securing the token is a vault that requires biometrics to access
@@ -38,7 +41,9 @@ Important Points:
 - If a user fails the biometric check they need to go through login again
 
 ## iOS Example
+
 This recorded iOS video shows:
+
 - A customized Login page provided by Azure B2C
 - Login page uses the devices default password manager (this is Apple's)
 - After login we return to the home page
@@ -48,6 +53,7 @@ This recorded iOS video shows:
 https://user-images.githubusercontent.com/84595830/167928101-4cc6dc3f-8a88-4d74-8087-dd0fc4ea2070.mp4
 
 Important Points:
+
 - The OIDC login page is served by the device (in its secure context) so our application is not responsible for security of its web view
 - Ionic's Auth Connect is responsible for initiating the login and returning the token
 - Our application provides the minimal set of configuration needed
@@ -59,12 +65,14 @@ Important Points:
 ## Web Example
 
 This recorded web video shows:
+
 - The same Login Page provided by Azure B2C
 - Code is the same as for iOS/Android with the exception of the redirect_uri
 
 https://user-images.githubusercontent.com/84595830/167944971-120e7898-1252-4612-9df9-54d59e9b462f.mp4
 
 Important Points:
+
 - No difference in code for Web vs Native
 
 ## Design
@@ -83,11 +91,12 @@ When the application is started or resumed on a mobile device we need to check a
 
 ## Auth Guards
 
-An auth guard protects access to an application through a check that happens when visiting a route. In `auth-guard.service.ts` a check is made to whether a users is signed in using the service `authentication.service.ts`. You can see this applied to routes in `app-routing.module.ts`.
+An auth guard protects access to an application through a check that happens when visiting a route. In `auth.guard.ts` a check is made to whether a users is signed in using the service `authentication.service.ts`. You can see this applied to routes in `app.routes.ts`.
 
 ## Authentication Service
 
 The service `authentication.service.ts` uses Ionic Auth Connect by extending `IonicAuth` and customizing by:
+
 - Specifying what we want to do on a successful login and logout
 - Specifying the configuration of our OIDC provider (using the configuration from `environment.ts`)
 - Specifying a configuration of Auth Connect that uses Identity Vault to store the sensitive auth token
@@ -96,6 +105,7 @@ The service `authentication.service.ts` uses Ionic Auth Connect by extending `Io
 ## Vault Service
 
 The service `vault.service.ts` uses Identity Vault and customizes it by:
+
 - Specifying a default configuration of using Biometrics to store information
 - Falling back to Secure Storage of information if the device is doesnt have strong biometrics enabled or supported (eg class 2 Android devices)
 - Uses a browser vault when run on web, this stores data in Local Storage (which you need to be ok with, otherwise an in-memory option is better)

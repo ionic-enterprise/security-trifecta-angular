@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
+import { PrivacyScreen } from '@capacitor/privacy-screen';
+import { AuthResult } from '@ionic-enterprise/auth';
 import {
   BiometricSecurityStrength,
   BrowserVault,
@@ -12,8 +14,6 @@ import {
   VaultType,
 } from '@ionic-enterprise/identity-vault';
 import { RouteService } from './route.service';
-import { AuthResult } from '@ionic-enterprise/auth';
-import { PrivacyScreen } from '@capacitor/privacy-screen';
 
 @Injectable({
   providedIn: 'root',

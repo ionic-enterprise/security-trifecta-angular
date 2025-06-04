@@ -1,26 +1,26 @@
 import { Routes } from '@angular/router';
-import { AuthGuardService } from './services/auth-guard.service';
+import { authGuard } from './services/auth.guard';
 
 export const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./pages/tabs/tabs.routes').then((c) => c.routes),
-    canActivate: [AuthGuardService],
+    canActivate: [authGuard],
   },
   {
     path: 'sponsors',
     loadComponent: () => import('./pages/sponsors/sponsors.page').then((p) => p.SponsorsPage),
-    canActivate: [AuthGuardService],
+    canActivate: [authGuard],
   },
   {
     path: 'profile',
     loadComponent: () => import('./pages/profile/profile.page').then((p) => p.ProfilePage),
-    canActivate: [AuthGuardService],
+    canActivate: [authGuard],
   },
   {
     path: 'swag-modal',
     loadComponent: () => import('./components/swag-modal/swag-modal.page').then((p) => p.SwagModalPage),
-    canActivate: [AuthGuardService],
+    canActivate: [authGuard],
   },
   {
     path: 'login',
