@@ -1,6 +1,23 @@
+import { NgIf } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { ModalController } from '@ionic/angular';
+import { FormsModule, NgForm } from '@angular/forms';
+import {
+  IonButton,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonInput,
+  IonItem,
+  IonLabel,
+  IonList,
+  IonListHeader,
+  IonSelect,
+  IonSelectOption,
+  IonText,
+  IonTitle,
+  IonToolbar,
+  ModalController,
+} from '@ionic/angular/standalone';
 import { HubspotService } from '../../services/hubspot.service';
 import { HubspotFormData } from '../../types';
 
@@ -8,7 +25,24 @@ import { HubspotFormData } from '../../types';
   selector: 'app-swag-modal',
   templateUrl: './swag-modal.page.html',
   styleUrls: ['./swag-modal.page.scss'],
-  standalone: false,
+  imports: [
+    IonButton,
+    IonButtons,
+    IonContent,
+    IonHeader,
+    IonInput,
+    IonItem,
+    IonLabel,
+    IonList,
+    IonListHeader,
+    IonSelect,
+    IonSelectOption,
+    IonText,
+    IonTitle,
+    IonToolbar,
+    FormsModule,
+    NgIf,
+  ],
 })
 export class SwagModalPage {
   @ViewChild('hubspotForm') hubspotForm: NgForm;

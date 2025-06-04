@@ -1,12 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Sponsor, SponsorTier } from '../../types';
 import { SponsorService } from '../../services/sponsor.service';
+import { NgFor } from '@angular/common';
+import { IonContent, IonHeader, IonListHeader, IonTitle, IonToolbar } from '@ionic/angular/standalone';
+import { SponsorCardComponent } from 'src/app/components/sponsor-card/sponsor-card.component';
 
 @Component({
   selector: 'app-sponsors',
   templateUrl: './sponsors.page.html',
   styleUrls: ['./sponsors.page.scss'],
-  standalone: false,
+  imports: [IonContent, IonHeader, IonListHeader, IonTitle, IonToolbar, NgFor, SponsorCardComponent],
 })
 export class SponsorsPage implements OnInit {
   public platinumSponsors: Sponsor[] = [];

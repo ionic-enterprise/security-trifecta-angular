@@ -1,15 +1,18 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { NgFor, NgIf } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/angular/standalone';
 import { AgendaService } from '../../services/agenda.service';
-import { SpeakerService } from '../../services/speaker.service';
 import { CompanyService } from '../../services/company.service';
+import { SpeakerService } from '../../services/speaker.service';
 import { AgendaItem, Speaker } from '../../types';
+import { AgendaAvatarsComponent } from '../agenda-avatars/agenda-avatars.component';
 
 @Component({
   selector: 'app-agenda-card',
   templateUrl: './agenda-card.component.html',
   styleUrls: ['./agenda-card.component.scss'],
-  standalone: false,
+  imports: [AgendaAvatarsComponent, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, NgFor, NgIf],
 })
 export class AgendaCardComponent implements OnInit {
   @Input() id: number;

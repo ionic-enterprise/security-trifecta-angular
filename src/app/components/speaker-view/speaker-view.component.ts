@@ -1,14 +1,26 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ModalController } from '@ionic/angular';
-import { Speaker } from '../../types';
-import { SpeakerService } from '../../services/speaker.service';
+import { NgIf } from '@angular/common';
+import { Component, Input, OnInit } from '@angular/core';
 import { Browser } from '@capacitor/browser';
+import {
+  IonButton,
+  IonButtons,
+  IonContent,
+  IonIcon,
+  IonLabel,
+  IonText,
+  ModalController,
+} from '@ionic/angular/standalone';
+import { addIcons } from 'ionicons';
+import { closeCircle, logoGithub, logoLinkedin, logoTwitter } from 'ionicons/icons';
+import { SpeakerService } from '../../services/speaker.service';
+import { Speaker } from '../../types';
+import { SpeakerCardComponent } from '../speaker-card/speaker-card.component';
 
 @Component({
   selector: 'app-speaker-view',
   templateUrl: './speaker-view.component.html',
   styleUrls: ['./speaker-view.component.scss'],
-  standalone: false,
+  imports: [IonButton, IonButtons, IonContent, IonIcon, IonLabel, IonText, NgIf, SpeakerCardComponent],
 })
 export class SpeakerViewComponent implements OnInit {
   @Input() id: number;
@@ -18,7 +30,9 @@ export class SpeakerViewComponent implements OnInit {
   constructor(
     private speakerService: SpeakerService,
     private modalController: ModalController,
-  ) {}
+  ) {
+    addIcons({ closeCircle, logoGithub, logoLinkedin, logoTwitter });
+  }
 
   ngOnInit() {
     this.speaker = this.speakerService.getSpeaker(this.id);

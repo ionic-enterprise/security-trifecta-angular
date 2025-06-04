@@ -1,7 +1,22 @@
+import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Browser } from '@capacitor/browser';
 import { ToastController } from '@ionic/angular';
+import {
+  IonBackButton,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonItem,
+  IonLabel,
+  IonList,
+  IonListHeader,
+  IonNote,
+  IonText,
+  IonToolbar,
+} from '@ionic/angular/standalone';
+import { AgendaAvatarsComponent } from 'src/app/components/agenda-avatars/agenda-avatars.component';
 import { TalkReminderService } from 'src/app/services/talk-reminder.service';
 import { AgendaService } from '../../../services/agenda.service';
 import { CompanyService } from '../../../services/company.service';
@@ -12,7 +27,22 @@ import { AgendaItem, Speaker } from '../../../types';
   selector: 'app-agenda-item',
   templateUrl: './agenda-item.page.html',
   styleUrls: ['./agenda-item.page.scss'],
-  standalone: false,
+  imports: [
+    AgendaAvatarsComponent,
+    IonBackButton,
+    IonButtons,
+    IonContent,
+    IonHeader,
+    IonItem,
+    IonLabel,
+    IonList,
+    IonListHeader,
+    IonNote,
+    IonText,
+    IonToolbar,
+    NgFor,
+    NgIf,
+  ],
 })
 export class AgendaItemPage implements OnInit {
   public agendaItem: AgendaItem;

@@ -16,6 +16,7 @@
       *ngFor="let item of speakers; trackBy: trackItems"
       [id]="item.id"
       [button]="true"
+      (click)="presentModal(item.id)"
     ></app-speaker-card>
   </div>
 </ion-content>

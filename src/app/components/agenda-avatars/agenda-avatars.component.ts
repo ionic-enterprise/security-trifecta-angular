@@ -1,10 +1,12 @@
+import { NgFor, NgStyle } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { IonAvatar } from '@ionic/angular/standalone';
 
 @Component({
   selector: 'app-agenda-avatars',
   templateUrl: './agenda-avatars.component.html',
   styleUrls: ['./agenda-avatars.component.scss'],
-  standalone: false,
+  imports: [IonAvatar, NgFor, NgStyle],
 })
 export class AgendaAvatarsComponent {
   @Input() urls: string[] = [];

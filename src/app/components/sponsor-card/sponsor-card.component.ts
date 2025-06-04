@@ -1,13 +1,15 @@
+import { NgClass, NgIf } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { Sponsor } from '../../types';
-import { SponsorService } from '../../services/sponsor.service';
 import { Browser } from '@capacitor/browser';
+import { IonCard } from '@ionic/angular/standalone';
+import { SponsorService } from '../../services/sponsor.service';
+import { Sponsor } from '../../types';
 
 @Component({
   selector: 'app-sponsor-card',
   templateUrl: './sponsor-card.component.html',
   styleUrls: ['./sponsor-card.component.scss'],
-  standalone: false,
+  imports: [IonCard, NgClass, NgIf],
 })
 export class SponsorCardComponent implements OnInit {
   @Input() id: number;

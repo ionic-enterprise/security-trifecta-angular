@@ -1,5 +1,20 @@
 import { Component } from '@angular/core';
-import { IonRouterOutlet, ModalController, ToastController } from '@ionic/angular';
+import {
+  IonButton,
+  IonCard,
+  IonCardContent,
+  IonCardHeader,
+  IonCardSubtitle,
+  IonCardTitle,
+  IonContent,
+  IonHeader,
+  IonListHeader,
+  IonRouterOutlet,
+  IonTitle,
+  IonToolbar,
+  ModalController,
+  ToastController,
+} from '@ionic/angular/standalone';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { VaultService } from 'src/app/services/vault.service';
 import { SwagModalPage } from '../../components/swag-modal/swag-modal.page';
@@ -8,7 +23,19 @@ import { SwagModalPage } from '../../components/swag-modal/swag-modal.page';
   selector: 'app-swag',
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
-  standalone: false,
+  imports: [
+    IonButton,
+    IonCard,
+    IonCardContent,
+    IonCardHeader,
+    IonCardSubtitle,
+    IonCardTitle,
+    IonContent,
+    IonListHeader,
+    IonHeader,
+    IonTitle,
+    IonToolbar,
+  ],
 })
 export class ProfilePage {
   public name: string;
