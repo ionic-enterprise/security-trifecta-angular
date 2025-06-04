@@ -1,8 +1,6 @@
 <ion-header collapse="fade" [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Agenda
-    </ion-title>
+    <ion-title> Agenda </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -14,9 +12,8 @@
   </ion-header>
 
   <div class="ion-padding">
-    <app-agenda-card
-      *ngFor="let item of agenda; trackBy: trackItems"
-      [id]="item.id"
-    ></app-agenda-card>
+    @for (item of agenda; track trackItems($index, item)) {
+    <app-agenda-card [id]="item.id"></app-agenda-card>
+    }
   </div>
 </ion-content>

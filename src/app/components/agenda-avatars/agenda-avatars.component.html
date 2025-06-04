@@ -1,5 +1,7 @@
 <div class="container">
-  <ion-avatar *ngFor="let url of urls" [ngStyle]="{ width: size, height: size }">
-    <img alt="avatar" [src]="url" />
-  </ion-avatar>
+  @for (url of urls; track url) {
+    <ion-avatar [ngStyle]="{ width: size, height: size }">
+      <img alt="avatar" [src]="url" />
+    </ion-avatar>
+  }
 </div>

@@ -1,4 +1,3 @@
-import { NgFor, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Browser } from '@capacitor/browser';
@@ -40,8 +39,6 @@ import { AgendaItem, Speaker } from '../../../types';
     IonNote,
     IonText,
     IonToolbar,
-    NgFor,
-    NgIf,
   ],
 })
 export class AgendaItemPage implements OnInit {

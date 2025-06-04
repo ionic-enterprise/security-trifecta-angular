@@ -14,43 +14,30 @@
   <div class="ion-padding-top">
     <ion-list-header class="eas-header-large">Platinum</ion-list-header>
     <div class="ion-padding grid">
-      <app-sponsor-card
-        *ngFor="let sponsor of platinumSponsors"
-        [id]="sponsor.id"
-        [button]="true"
-      >
-      </app-sponsor-card>
+      @for (sponsor of platinumSponsors; track sponsor) {
+      <app-sponsor-card [id]="sponsor.id" [button]="true"> </app-sponsor-card>
+      }
     </div>
 
     <ion-list-header class="eas-header-large">Gold</ion-list-header>
     <div class="ion-padding grid">
-      <app-sponsor-card
-        *ngFor="let sponsor of goldSponsors"
-        [id]="sponsor.id"
-        [button]="true"
-      >
-      </app-sponsor-card>
+      @for (sponsor of goldSponsors; track sponsor) {
+      <app-sponsor-card [id]="sponsor.id" [button]="true"> </app-sponsor-card>
+      }
     </div>
 
     <ion-list-header class="eas-header-large">Silver</ion-list-header>
     <div class="ion-padding grid">
-      <app-sponsor-card
-        *ngFor="let sponsor of silverSponsors"
-        [id]="sponsor.id"
-        [button]="true"
-      >
-      </app-sponsor-card>
+      @for (sponsor of silverSponsors; track sponsor) {
+      <app-sponsor-card [id]="sponsor.id" [button]="true"> </app-sponsor-card>
+      }
     </div>
 
     <ion-list-header class="eas-header-large">Bronze</ion-list-header>
     <div class="ion-padding grid">
-      <app-sponsor-card
-        *ngFor="let sponsor of bronzeSponsors"
-        [id]="sponsor.id"
-        [button]="true"
-      >
-      </app-sponsor-card>
+      @for (sponsor of bronzeSponsors; track sponsor) {
+      <app-sponsor-card [id]="sponsor.id" [button]="true"> </app-sponsor-card>
+      }
     </div>
   </div>
-
 </ion-content>

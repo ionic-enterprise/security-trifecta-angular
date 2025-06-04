@@ -1,19 +1,24 @@
-<ion-header>
-</ion-header>
+<ion-header> </ion-header>
 
 <ion-content>
   <div class="frame" [ngClass]="showLogo ? 'show' : 'hide'">
-    <ion-img (ionImgDidLoad)="showLogo = true" [src]="isDark ? 'assets/ionic-dark.svg' : 'assets/ionic.svg'"
-      class="logo">
+    <ion-img
+      (ionImgDidLoad)="showLogo = true"
+      [src]="isDark ? 'assets/ionic-dark.svg' : 'assets/ionic.svg'"
+      class="logo"
+    >
     </ion-img>
     <ion-text color="dark">
       <h2>Conference App</h2>
       <h2>&nbsp;</h2>
     </ion-text>
-    <ion-spinner *ngIf="busy" color="dark" name="crescent"></ion-spinner>
+    @if (busy) {
+    <ion-spinner color="dark" name="crescent"></ion-spinner>
+    }
     <div class="buttons">
-      <ion-button *ngIf="!busy" (click)="signIn()" mode="ios" color="dark" fill="outline" size="large">Sign In /
-        Up</ion-button>
+      @if (!busy) {
+      <ion-button (click)="signIn()" mode="ios" color="dark" fill="outline" size="large">Sign In / Up</ion-button>
+      }
     </div>
   </div>
 </ion-content>

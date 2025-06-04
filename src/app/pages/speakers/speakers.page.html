@@ -12,11 +12,8 @@
   </ion-header>
 
   <div class="ion-padding grid">
-    <app-speaker-card
-      *ngFor="let item of speakers; trackBy: trackItems"
-      [id]="item.id"
-      [button]="true"
-      (click)="presentModal(item.id)"
-    ></app-speaker-card>
+    @for (item of speakers; track trackItems($index, item)) {
+    <app-speaker-card [id]="item.id" [button]="true" (click)="presentModal(item.id)"></app-speaker-card>
+    }
   </div>
 </ion-content>

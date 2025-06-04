@@ -5,18 +5,14 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
+    "esModuleInterop": true,
     "declaration": false,
-    "downlevelIteration": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
     "module": "es2020",
-    "lib": [
-      "es2018",
-      "dom",
-      "dom.iterable"
-    ],
+    "lib": ["es2018", "dom", "dom.iterable"],
     "useDefineForClassFields": false
   },
   "angularCompilerOptions": {

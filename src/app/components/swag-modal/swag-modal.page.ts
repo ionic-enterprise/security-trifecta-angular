@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { Component, ViewChild } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import {
@@ -41,7 +40,6 @@ import { HubspotFormData } from '../../types';
     IonTitle,
     IonToolbar,
     FormsModule,
-    NgIf,
   ],
 })
 export class SwagModalPage {

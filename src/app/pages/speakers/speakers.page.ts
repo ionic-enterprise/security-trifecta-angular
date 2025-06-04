@@ -1,4 +1,3 @@
-import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { IonContent, IonHeader, IonTitle, IonToolbar, ModalController } from '@ionic/angular/standalone';
 import { SpeakerCardComponent } from 'src/app/components/speaker-card/speaker-card.component';
@@ -10,7 +9,7 @@ import { SpeakerViewComponent } from 'src/app/components/speaker-view/speaker-vi
   selector: 'app-speakers',
   templateUrl: './speakers.page.html',
   styleUrls: ['./speakers.page.scss'],
-  imports: [IonContent, IonHeader, IonTitle, IonToolbar, NgFor, SpeakerCardComponent],
+  imports: [IonContent, IonHeader, IonTitle, IonToolbar, SpeakerCardComponent],
 })
 export class SpeakersPage implements OnInit {
   public speakers: Speaker[] = [];

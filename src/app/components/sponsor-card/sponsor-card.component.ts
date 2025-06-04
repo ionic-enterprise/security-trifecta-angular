@@ -1,4 +1,4 @@
-import { NgClass, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Browser } from '@capacitor/browser';
 import { IonCard } from '@ionic/angular/standalone';
@@ -9,7 +9,7 @@ import { Sponsor } from '../../types';
   selector: 'app-sponsor-card',
   templateUrl: './sponsor-card.component.html',
   styleUrls: ['./sponsor-card.component.scss'],
-  imports: [IonCard, NgClass, NgIf],
+  imports: [IonCard, NgClass],
 })
 export class SponsorCardComponent implements OnInit {
   @Input() id: number;

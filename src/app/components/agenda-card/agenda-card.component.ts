@@ -1,4 +1,3 @@
-import { NgFor, NgIf } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/angular/standalone';
@@ -12,7 +11,7 @@ import { AgendaAvatarsComponent } from '../agenda-avatars/agenda-avatars.compone
   selector: 'app-agenda-card',
   templateUrl: './agenda-card.component.html',
   styleUrls: ['./agenda-card.component.scss'],
-  imports: [AgendaAvatarsComponent, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, NgFor, NgIf],
+  imports: [AgendaAvatarsComponent, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle],
 })
 export class AgendaCardComponent implements OnInit {
   @Input() id: number;

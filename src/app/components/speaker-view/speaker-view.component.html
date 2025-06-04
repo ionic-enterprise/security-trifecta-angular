@@ -13,25 +13,31 @@
     ><br /><br />
 
     <h2 class="eas-header-large">Connect with {{ speaker.firstName }}</h2>
-    <ion-button color="light" class="connect-button" (click)="openLink(speaker.linkedin)" *ngIf="speaker.linkedin">
-      <div>
-        <ion-icon name="logo-linkedin"></ion-icon><br />
-        <ion-label>LinkedIn</ion-label>
-      </div>
-    </ion-button>
+    @if (speaker.linkedin) {
+      <ion-button color="light" class="connect-button" (click)="openLink(speaker.linkedin)">
+        <div>
+          <ion-icon name="logo-linkedin"></ion-icon><br />
+          <ion-label>LinkedIn</ion-label>
+        </div>
+      </ion-button>
+    }
 
-    <ion-button color="light" class="connect-button" (click)="openLink(speaker.github)" *ngIf="speaker.github">
-      <div>
-        <ion-icon name="logo-github"></ion-icon><br />
-        <ion-label>GitHub</ion-label>
-      </div>
-    </ion-button>
+    @if (speaker.github) {
+      <ion-button color="light" class="connect-button" (click)="openLink(speaker.github)">
+        <div>
+          <ion-icon name="logo-github"></ion-icon><br />
+          <ion-label>GitHub</ion-label>
+        </div>
+      </ion-button>
+    }
 
-    <ion-button color="light" class="connect-button" (click)="openLink(speaker.twitter)" *ngIf="speaker.twitter">
-      <div>
-        <ion-icon name="logo-twitter" size="large"></ion-icon><br />
-        <ion-label>Twitter</ion-label>
-      </div>
-    </ion-button>
+    @if (speaker.twitter) {
+      <ion-button color="light" class="connect-button" (click)="openLink(speaker.twitter)">
+        <div>
+          <ion-icon name="logo-twitter" size="large"></ion-icon><br />
+          <ion-label>Twitter</ion-label>
+        </div>
+      </ion-button>
+    }
   </div>
 </ion-content>

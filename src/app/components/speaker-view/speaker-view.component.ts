@@ -1,4 +1,3 @@
-import { NgIf } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { Browser } from '@capacitor/browser';
 import {
@@ -20,7 +19,7 @@ import { SpeakerCardComponent } from '../speaker-card/speaker-card.component';
   selector: 'app-speaker-view',
   templateUrl: './speaker-view.component.html',
   styleUrls: ['./speaker-view.component.scss'],
-  imports: [IonButton, IonButtons, IonContent, IonIcon, IonLabel, IonText, NgIf, SpeakerCardComponent],
+  imports: [IonButton, IonButtons, IonContent, IonIcon, IonLabel, IonText, SpeakerCardComponent],
 })
 export class SpeakerViewComponent implements OnInit {
   @Input() id: number;

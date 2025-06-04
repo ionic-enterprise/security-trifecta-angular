@@ -25,9 +25,9 @@
           required
         ></ion-input>
 
-        <ion-text slot="error" *ngIf="!firstName.valid && (!firstName.pristine || hubspotForm.submitted)"
-          >First name is required</ion-text
-        >
+        @if (!firstName.valid && (!firstName.pristine || hubspotForm.submitted)) {
+        <ion-text slot="error">First name is required</ion-text>
+        }
       </ion-item>
       <ion-item>
         <ion-label>Last Name</ion-label>
@@ -38,9 +38,9 @@
           #lastName="ngModel"
           required
         ></ion-input>
-        <ion-text slot="error" *ngIf="!lastName.valid && (!lastName.pristine || hubspotForm.submitted)"
-          >Last name is required</ion-text
-        >
+        @if (!lastName.valid && (!lastName.pristine || hubspotForm.submitted)) {
+        <ion-text slot="error">Last name is required</ion-text>
+        }
       </ion-item>
       <ion-item>
         <ion-label>Work Email</ion-label>
@@ -52,12 +52,9 @@
           #email="ngModel"
           required
         ></ion-input>
-        <ion-text
-          class="ion-padding-bottom"
-          slot="error"
-          *ngIf="!email.valid && (!email.pristine || hubspotForm.submitted)"
-          >Email is required</ion-text
-        >
+        @if (!email.valid && (!email.pristine || hubspotForm.submitted)) {
+        <ion-text class="ion-padding-bottom" slot="error">Email is required</ion-text>
+        }
       </ion-item>
     </ion-list>
     <ion-list-header>Mailing Address</ion-list-header>
@@ -71,16 +68,16 @@
           #street="ngModel"
           required
         ></ion-input>
-        <ion-text slot="error" *ngIf="!street.valid && (!street.pristine || hubspotForm.submitted)"
-          >Street is required</ion-text
-        >
+        @if (!street.valid && (!street.pristine || hubspotForm.submitted)) {
+        <ion-text slot="error">Street is required</ion-text>
+        }
       </ion-item>
       <ion-item>
         <ion-label>City</ion-label>
         <ion-input placeholder="Boston" [(ngModel)]="hubspotData.city" name="city" #city="ngModel" required></ion-input>
-        <ion-text slot="error" *ngIf="!city.valid && (!city.pristine || hubspotForm.submitted)"
-          >City is required</ion-text
-        >
+        @if (!city.valid && (!city.pristine || hubspotForm.submitted)) {
+        <ion-text slot="error">City is required</ion-text>
+        }
       </ion-item>
       <ion-item>
         <ion-label>Zip</ion-label>
@@ -313,14 +310,12 @@
           <ion-select-option value="Zambia">Zambia</ion-select-option>
           <ion-select-option value="Zimbabwe">Zimbabwe</ion-select-option>
         </ion-select>
-        <ion-text
-          class="ion-padding-bottom"
-          slot="error"
-          *ngIf="!country.valid && (!country.pristine || hubspotForm.submitted)"
-          >Country is required</ion-text
-        >
+        @if (!country.valid && (!country.pristine || hubspotForm.submitted)) {
+        <ion-text class="ion-padding-bottom" slot="error">Country is required</ion-text>
+        }
       </ion-item>
-      <ion-item *ngIf="hubspotData.country_pl_ === 'United States'">
+      @if (hubspotData.country_pl_ === 'United States') {
+      <ion-item>
         <ion-label>State</ion-label>
         <ion-select
           [(ngModel)]="hubspotData.state"
@@ -384,13 +379,12 @@
           <ion-select-option value="Wisconsin">Wisconsin</ion-select-option>
           <ion-select-option value="Wyoming">Wyoming</ion-select-option>
         </ion-select>
-        <ion-text
-          class="ion-padding-bottom"
-          slot="error"
-          *ngIf="!state.valid && hubspotData.country_pl_ === 'United States' && (!state.pristine || hubspotForm.submitted)"
-          >State is required</ion-text
-        >
+        @if (!state.valid && hubspotData.country_pl_ === 'United States' && (!state.pristine || hubspotForm.submitted))
+        {
+        <ion-text class="ion-padding-bottom" slot="error">State is required</ion-text>
+        }
       </ion-item>
+      }
     </ion-list>
     <ion-list-header>Preferences</ion-list-header>
     <ion-list [inset]="true">
@@ -411,12 +405,9 @@
           <ion-select-option value="X-Large">X-Large</ion-select-option>
           <ion-select-option value="2X- Large">2X-Large</ion-select-option>
         </ion-select>
-        <ion-text
-          class="ion-padding-bottom"
-          slot="error"
-          *ngIf="!tshirt.valid && (!tshirt.pristine || hubspotForm.submitted)"
-          >T-shirt Size is required</ion-text
-        >
+        @if (!tshirt.valid && (!tshirt.pristine || hubspotForm.submitted)) {
+        <ion-text class="ion-padding-bottom" slot="error">T-shirt Size is required</ion-text>
+        }
       </ion-item>
     </ion-list>
   </form>

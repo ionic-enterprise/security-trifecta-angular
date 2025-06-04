@@ -1,4 +1,4 @@
-import { NgClass, NgIf } from '@angular/common';
+import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
 import { IonButton, IonContent, IonHeader, IonImg, IonSpinner, IonText } from '@ionic/angular/standalone';
 import { AuthenticationService } from 'src/app/services/authentication.service';
@@ -8,7 +8,7 @@ import { VaultService } from 'src/app/services/vault.service';
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
-  imports: [IonButton, IonContent, IonHeader, IonImg, IonSpinner, IonText, NgClass, NgIf],
+  imports: [IonButton, IonContent, IonHeader, IonImg, IonSpinner, IonText, NgClass],
 })
 export class LoginPage {
   public busy = false;
