@@ -4,7 +4,6 @@ import { Platform } from '@ionic/angular';
 import { nativeIonicAuthOptions, webIonicAuthOptions } from '../../environments/environment';
 import { RouteService } from './route.service';
 import { VaultService } from './vault.service';
-import { checkAuthResult } from './util';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
@@ -13,7 +12,8 @@ export class AuthenticationService {
   constructor(
     private platform: Platform,
     private routeService: RouteService,
-    private vaultService: VaultService) {
+    private vaultService: VaultService,
+  ) {
     this.init();
   }
 
@@ -26,17 +26,20 @@ export class AuthenticationService {
       logLevel: 'NONE',
       ios: {
         webView: 'private',
-        safariWebViewOptions: { 
-          dismissButtonStyle: 'close', 
-          preferredBarTintColor: '#FFFFFF', 
-          preferredControlTintColor: '#333333' }
+        safariWebViewOptions: {
+          dismissButtonStyle: 'close',
+          preferredBarTintColor: '#FFFFFF',
+          preferredControlTintColor: '#333333',
+        },
       },
-      android: { 
-        isAnimated: false, 
-        showDefaultShareMenuItem: false },
-      web: { 
-        uiMode: 'current', 
-        authFlow: 'PKCE' }
+      android: {
+        isAnimated: false,
+        showDefaultShareMenuItem: false,
+      },
+      web: {
+        uiMode: 'current',
+        authFlow: 'PKCE',
+      },
     });
 
     try {
@@ -62,7 +65,8 @@ export class AuthenticationService {
    */
   public async handleLogin() {
     const urlParams = new URLSearchParams(window.location.search);
-    const queryEntries = (Object as any).fromEntries(urlParams.entries());    
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const queryEntries = (Object as any).fromEntries(urlParams.entries());
     // WN-1241 - providerOptions is optional but if you dont set it the logout method will fail
     this.result = await AuthConnect.handleLoginCallback(queryEntries, this.getAuthOptions());
     await this.vaultService.set(this.result);
@@ -124,5 +128,4 @@ export class AuthenticationService {
   private getAuthOptions(): ProviderOptions {
     return this.platform.is('hybrid') ? nativeIonicAuthOptions : webIonicAuthOptions;
   }
-
 }

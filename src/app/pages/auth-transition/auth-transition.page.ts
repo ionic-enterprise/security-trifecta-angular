@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { RouteService } from 'src/app/services/route.service';
 
@@ -7,12 +7,11 @@ import { RouteService } from 'src/app/services/route.service';
   templateUrl: './auth-transition.page.html',
   styleUrls: ['./auth-transition.page.scss'],
 })
-export class AuthTransitionPage implements OnInit {
-
-  constructor(private routeService: RouteService, private auth: AuthenticationService) { }
-
-  ngOnInit() {
-  }
+export class AuthTransitionPage {
+  constructor(
+    private routeService: RouteService,
+    private auth: AuthenticationService,
+  ) {}
 
   async ionViewDidEnter() {
     try {

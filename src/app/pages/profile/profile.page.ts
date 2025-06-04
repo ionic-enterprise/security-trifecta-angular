@@ -1,34 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { IonRouterOutlet, ModalController, ToastController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { VaultService } from 'src/app/services/vault.service';
 import { SwagModalPage } from '../../components/swag-modal/swag-modal.page';
-
 
 @Component({
   selector: 'app-swag',
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
 })
-export class ProfilePage implements OnInit {
-
+export class ProfilePage {
   public name: string;
   public id: string;
 
-  constructor(public modalController: ModalController,
+  constructor(
+    public modalController: ModalController,
     private authService: AuthenticationService,
     private vaultService: VaultService,
-    private routerOutlet: IonRouterOutlet, public toastController: ToastController) { }
-
-  async ngOnInit() {
-  }
+    private routerOutlet: IonRouterOutlet,
+    public toastController: ToastController,
+  ) {}
 
   async ionViewDidEnter() {
     const token = await this.authService.getAccessToken();
     console.log('access token', token);
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const data: any = await this.authService.decodeToken();
-    const isExpired = (Date.now() >= data.exp * 1000);
+    const isExpired = Date.now() >= data.exp * 1000;
     console.log(`Expired ${isExpired}`);
     this.name = `${data.given_name} ${data.family_name}`;
     this.id = data.sub;
@@ -39,7 +38,7 @@ export class ProfilePage implements OnInit {
     const modal: HTMLIonModalElement = await this.modalController.create({
       component: SwagModalPage,
       presentingElement: this.routerOutlet.nativeEl,
-      componentProps: {}
+      componentProps: {},
     });
 
     modal.onDidDismiss().then((result) => {
@@ -63,7 +62,7 @@ export class ProfilePage implements OnInit {
     const toast = await this.toastController.create({
       message: 'Thanks! Winners will be notified by email.',
       duration: 2000,
-      color: 'primary'
+      color: 'primary',
     });
 
     await toast.present();

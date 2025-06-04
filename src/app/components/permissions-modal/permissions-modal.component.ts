@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { PushNotificationService } from 'src/app/services/push-notification.service';
 
@@ -7,11 +7,11 @@ import { PushNotificationService } from 'src/app/services/push-notification.serv
   templateUrl: './permissions-modal.component.html',
   styleUrls: ['./permissions-modal.component.scss'],
 })
-export class PermissionsModalComponent implements OnInit {
-
-  constructor(private modalController: ModalController, private pushService: PushNotificationService) { }
-
-  ngOnInit() {}
+export class PermissionsModalComponent {
+  constructor(
+    private modalController: ModalController,
+    private pushService: PushNotificationService,
+  ) {}
 
   async onContinue() {
     await this.pushService.promptPushRegistration();

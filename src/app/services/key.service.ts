@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
-import { BrowserVault, DeviceSecurityType, IdentityVaultConfig, Vault, VaultType } from '@ionic-enterprise/identity-vault';
+import {
+  BrowserVault,
+  DeviceSecurityType,
+  IdentityVaultConfig,
+  Vault,
+  VaultType,
+} from '@ionic-enterprise/identity-vault';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class KeyService {
   vault: Vault | BrowserVault;
@@ -11,10 +17,8 @@ export class KeyService {
   private config: IdentityVaultConfig = {
     key: 'io.ionic.conferences.cs.key',
     type: VaultType.SecureStorage,
-    deviceSecurityType: DeviceSecurityType.None
+    deviceSecurityType: DeviceSecurityType.None,
   };
-  constructor() {
-  }
 
   public async init(): Promise<void> {
     if (Capacitor.getPlatform() === 'web') {

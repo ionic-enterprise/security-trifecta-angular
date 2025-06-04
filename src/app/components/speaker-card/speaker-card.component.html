@@ -1,7 +1,7 @@
 <ion-card
   [ngClass]="{
     'card-button': button,
-    'safe-area': safeArea
+    'safe-area': safeArea,
   }"
   [button]="button"
   [style.backgroundImage]="'url(' + speaker.photoUrl + ')'"
@@ -12,6 +12,6 @@
     <ion-card-subtitle>{{ speaker.role }}, {{ company.name }}</ion-card-subtitle>
   </ion-card-header>
   <ion-card-content>
-    <img [src]="company.logoUrl" />
+    <img alt="Company Logo" [src]="company.logoUrl" />
   </ion-card-content>
 </ion-card>

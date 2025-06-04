@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { VaultService } from 'src/app/services/vault.service';
 
@@ -8,17 +7,15 @@ import { VaultService } from 'src/app/services/vault.service';
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
   public busy = false;
   public showLogo = false;
   public isDark = !window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-  constructor(private authenticationService: AuthenticationService, private vaultService: VaultService) {
-  }
-
-  async ngOnInit() {
-
-  }
+  constructor(
+    private authenticationService: AuthenticationService,
+    private vaultService: VaultService,
+  ) {}
 
   async signIn() {
     try {

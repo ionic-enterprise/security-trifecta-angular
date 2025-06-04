@@ -5,14 +5,15 @@ import { KeyValueStorage } from '@ionic-enterprise/secure-storage/ngx';
 import { KeyService } from './key.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
-
   private initialized = false;
 
-  constructor(private secureStorage: KeyValueStorage, private keyService: KeyService) {
-  }
+  constructor(
+    private secureStorage: KeyValueStorage,
+    private keyService: KeyService,
+  ) {}
 
   public async getSpeakers(): Promise<Speaker[]> {
     return await this.getCached('speakers.json');
@@ -30,6 +31,7 @@ export class ApiService {
     return await this.getCached('companies.json');
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private async getCached(url: string): Promise<any> {
     await this.initStorage();
 
@@ -49,12 +51,13 @@ export class ApiService {
     if (this.initialized) {
       return;
     }
-    
+
     this.initialized = true;
     const key = await this.keyService.getKey();
     await this.secureStorage.create(key);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   private async get(url: string): Promise<any> {
     const response = await fetch(`${environment.baseUrl}/${url}`);
     return await response.json();

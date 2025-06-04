@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SpeakerService } from '../../../services/speaker.service';
+import { Browser } from '@capacitor/browser';
+import { ToastController } from '@ionic/angular';
+import { TalkReminderService } from 'src/app/services/talk-reminder.service';
 import { AgendaService } from '../../../services/agenda.service';
 import { CompanyService } from '../../../services/company.service';
-import { AgendaItem, Company, Speaker } from '../../../types';
-import { TalkReminderService } from 'src/app/services/talk-reminder.service';
-import { ToastController } from '@ionic/angular';
-import { Browser } from '@capacitor/browser';
-
+import { SpeakerService } from '../../../services/speaker.service';
+import { AgendaItem, Speaker } from '../../../types';
 
 @Component({
   selector: 'app-agenda-item',
@@ -25,14 +24,14 @@ export class AgendaItemPage implements OnInit {
     private agendaService: AgendaService,
     private companyService: CompanyService,
     private talkReminderService: TalkReminderService,
-    private toastController: ToastController
-  ) { }
+    private toastController: ToastController,
+  ) {}
 
-  async ngOnInit() {    
+  async ngOnInit() {
     const agendaId = this.route.snapshot.paramMap.get('agendaId');
     this.agendaItem = await this.agendaService.getAgendaItem(parseInt(agendaId, 10));
     this.speakers = await this.speakerService.getSpeakers(this.agendaItem.speakerIds);
-    this.photoUrls = this.speakers.map(speaker => speaker.photoUrl);
+    this.photoUrls = this.speakers.map((speaker) => speaker.photoUrl);
   }
 
   async setReminder(agendaItem: AgendaItem) {
@@ -42,7 +41,7 @@ export class AgendaItemPage implements OnInit {
     const toast = await this.toastController.create({
       message: 'Reminder set for 5 minutes before the talk begins',
       duration: 2000,
-      color: 'primary'
+      color: 'primary',
     });
 
     await toast.present();
