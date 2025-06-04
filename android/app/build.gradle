@@ -1,8 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
+    packagingOptions {
+        resources {
+            excludes += ['META-INF/NOTICE', 'META-INF/LICENSE']
+        }
+    }
     namespace "io.ionic.cs.appsummit"
-    compileSdkVersion rootProject.ext.compileSdkVersion
+    compileSdk rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "io.ionic.cs.appsummit"
         minSdkVersion rootProject.ext.minSdkVersion
