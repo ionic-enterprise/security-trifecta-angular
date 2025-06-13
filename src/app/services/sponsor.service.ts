@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Sponsor } from '../types';
 import { ApiService } from './api.service';
 
@@ -6,9 +6,9 @@ import { ApiService } from './api.service';
   providedIn: 'root',
 })
 export class SponsorService {
-  private sponsors: Sponsor[];
+  private apiService = inject(ApiService);
 
-  constructor(private apiService: ApiService) {}
+  private sponsors: Sponsor[];
 
   async getSponsors(): Promise<Sponsor[]> {
     await this.init();

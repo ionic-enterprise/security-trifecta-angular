@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Sponsor, SponsorTier } from '../../types';
 import { SponsorService } from '../../services/sponsor.service';
 
@@ -12,12 +12,12 @@ import { SponsorCardComponent } from 'src/app/components/sponsor-card/sponsor-ca
   imports: [IonContent, IonHeader, IonListHeader, IonTitle, IonToolbar, SponsorCardComponent],
 })
 export class SponsorsPage implements OnInit {
+  private sponsorService = inject(SponsorService);
+
   public platinumSponsors: Sponsor[] = [];
   public goldSponsors: Sponsor[] = [];
   public silverSponsors: Sponsor[] = [];
   public bronzeSponsors: Sponsor[] = [];
-
-  constructor(private sponsorService: SponsorService) {}
 
   async ngOnInit() {
     const sponsors = await this.sponsorService.getSponsors();

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
 import { PrivacyScreen } from '@capacitor/privacy-screen';
 import { AuthResult } from '@ionic-enterprise/auth';
@@ -19,6 +19,8 @@ import { RouteService } from './route.service';
   providedIn: 'root',
 })
 export class VaultService {
+  private routeService = inject(RouteService);
+
   config: IdentityVaultConfig = {
     key: 'io.ionic.conferences.cs.auth',
     type: VaultType.DeviceSecurity,
@@ -30,8 +32,6 @@ export class VaultService {
   };
 
   vault: Vault | BrowserVault;
-
-  constructor(private routeService: RouteService) {}
 
   /**
    * Init is called by our APP_INITIALIZER at the startup of the application

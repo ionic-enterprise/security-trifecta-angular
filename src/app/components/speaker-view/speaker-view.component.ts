@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { Browser } from '@capacitor/browser';
 import {
   IonButton,
@@ -22,14 +22,14 @@ import { SpeakerCardComponent } from '../speaker-card/speaker-card.component';
   imports: [IonButton, IonButtons, IonContent, IonIcon, IonLabel, IonText, SpeakerCardComponent],
 })
 export class SpeakerViewComponent implements OnInit {
+  private speakerService = inject(SpeakerService);
+  private modalController = inject(ModalController);
+
   @Input() id: number;
 
   public speaker: Speaker;
 
-  constructor(
-    private speakerService: SpeakerService,
-    private modalController: ModalController,
-  ) {
+  constructor() {
     addIcons({ closeCircle, logoGithub, logoLinkedin, logoTwitter });
   }
 

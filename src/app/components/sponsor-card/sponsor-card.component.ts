@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { Browser } from '@capacitor/browser';
 import { IonCard } from '@ionic/angular/standalone';
 import { SponsorService } from '../../services/sponsor.service';
@@ -12,12 +12,12 @@ import { Sponsor } from '../../types';
   imports: [IonCard, NgClass],
 })
 export class SponsorCardComponent implements OnInit {
+  private sponsorService = inject(SponsorService);
+
   @Input() id: number;
   @Input() button = false;
 
   public sponsor: Sponsor;
-
-  constructor(private sponsorService: SponsorService) {}
 
   async ngOnInit() {
     this.sponsor = await this.sponsorService.getSponsor(this.id);

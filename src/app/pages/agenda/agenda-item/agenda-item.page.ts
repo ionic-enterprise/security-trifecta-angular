@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Browser } from '@capacitor/browser';
 import { ToastController } from '@ionic/angular';
@@ -42,18 +42,16 @@ import { AgendaItem, Speaker } from '../../../types';
   ],
 })
 export class AgendaItemPage implements OnInit {
+  private route = inject(ActivatedRoute);
+  private speakerService = inject(SpeakerService);
+  private agendaService = inject(AgendaService);
+  private companyService = inject(CompanyService);
+  private talkReminderService = inject(TalkReminderService);
+  private toastController = inject(ToastController);
+
   public agendaItem: AgendaItem;
   public speakers: Speaker[];
   public photoUrls: string[] = [];
-
-  constructor(
-    private route: ActivatedRoute,
-    private speakerService: SpeakerService,
-    private agendaService: AgendaService,
-    private companyService: CompanyService,
-    private talkReminderService: TalkReminderService,
-    private toastController: ToastController,
-  ) {}
 
   async ngOnInit() {
     const agendaId = this.route.snapshot.paramMap.get('agendaId');

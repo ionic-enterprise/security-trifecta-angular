@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { IonContent, IonHeader, IonTitle, IonToolbar, ModalController } from '@ionic/angular/standalone';
 import { SpeakerCardComponent } from 'src/app/components/speaker-card/speaker-card.component';
 import { SpeakerService } from '../../services/speaker.service';
@@ -12,12 +12,10 @@ import { SpeakerViewComponent } from 'src/app/components/speaker-view/speaker-vi
   imports: [IonContent, IonHeader, IonTitle, IonToolbar, SpeakerCardComponent],
 })
 export class SpeakersPage implements OnInit {
-  public speakers: Speaker[] = [];
+  private modalController = inject(ModalController);
+  private speakerService = inject(SpeakerService);
 
-  constructor(
-    private modalController: ModalController,
-    private speakerService: SpeakerService,
-  ) {}
+  public speakers: Speaker[] = [];
 
   async ngOnInit() {
     this.speakers = await this.speakerService.getSpeakers();

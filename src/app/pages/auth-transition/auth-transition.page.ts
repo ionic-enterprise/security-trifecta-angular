@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { IonContent, IonSpinner } from '@ionic/angular/standalone';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { RouteService } from 'src/app/services/route.service';
@@ -10,10 +10,8 @@ import { RouteService } from 'src/app/services/route.service';
   imports: [IonContent, IonSpinner],
 })
 export class AuthTransitionPage {
-  constructor(
-    private routeService: RouteService,
-    private auth: AuthenticationService,
-  ) {}
+  private routeService = inject(RouteService);
+  private auth = inject(AuthenticationService);
 
   async ionViewDidEnter() {
     try {

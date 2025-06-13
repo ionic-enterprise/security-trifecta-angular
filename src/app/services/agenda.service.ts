@@ -1,18 +1,18 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { AgendaItem } from '../types';
 import { ApiService } from './api.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AgendaService {
-  private agenda: AgendaItem[];
+  private apiService = inject(ApiService);
 
-  constructor(private apiService: ApiService) {}
+  private agenda: AgendaItem[];
 
   async init() {
     if (this.agenda) return;
-   this.agenda = await this.apiService.getAgenda();
+    this.agenda = await this.apiService.getAgenda();
   }
 
   async getAgenda(): Promise<AgendaItem[]> {
@@ -22,7 +22,7 @@ export class AgendaService {
 
   async getAgendaItem(id: number): Promise<AgendaItem | undefined> {
     await this.init();
-    return this.agenda.find(agenda => agenda.id === id);
+    return this.agenda.find((agenda) => agenda.id === id);
   }
 
   public formatTalkTime(agendaItem: AgendaItem) {
@@ -35,7 +35,7 @@ export class AgendaService {
 
   // time: 08:00 AM, 12:30 PM, 14:00 PM etc.
   private convertToTwelveHourFormat(time: string) {
-    let hour = parseInt(time.substring(0,2), 10);
+    let hour = parseInt(time.substring(0, 2), 10);
 
     if (hour > 12) {
       hour = hour - 12;

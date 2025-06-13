@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   IonButton,
   IonButtons,
@@ -20,10 +20,10 @@ import { PushNotificationService } from 'src/app/services/push-notification.serv
   imports: [IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonText, IonToolbar],
 })
 export class PermissionsModalComponent {
-  constructor(
-    private modalController: ModalController,
-    private pushService: PushNotificationService,
-  ) {
+  private modalController = inject(ModalController);
+  private pushService = inject(PushNotificationService);
+
+  constructor() {
     addIcons({ closeCircle });
   }
 

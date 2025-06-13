@@ -1,4 +1,4 @@
-import { Component, NgZone } from '@angular/core';
+import { Component, NgZone, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { App, URLOpenListenerEvent } from '@capacitor/app';
 import { Capacitor } from '@capacitor/core';
@@ -16,13 +16,13 @@ import { VaultService } from './services/vault.service';
   imports: [IonApp, IonRouterOutlet],
 })
 export class AppComponent {
-  constructor(
-    private auth: AuthenticationService,
-    private router: Router,
-    private vaultService: VaultService,
-    private platform: Platform,
-    private ngZone: NgZone,
-  ) {
+  private auth = inject(AuthenticationService);
+  private router = inject(Router);
+  private vaultService = inject(VaultService);
+  private platform = inject(Platform);
+  private ngZone = inject(NgZone);
+
+  constructor() {
     this.initializeApp();
     this.platform.resume.subscribe(() => {
       console.log('PlatformResult.checkAuth', this.router.url);

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { IonButton, IonContent, IonHeader, IonImg, IonSpinner, IonText } from '@ionic/angular/standalone';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { VaultService } from 'src/app/services/vault.service';
@@ -11,14 +11,12 @@ import { VaultService } from 'src/app/services/vault.service';
   imports: [IonButton, IonContent, IonHeader, IonImg, IonSpinner, IonText, NgClass],
 })
 export class LoginPage {
+  private authenticationService = inject(AuthenticationService);
+  private vaultService = inject(VaultService);
+
   public busy = false;
   public showLogo = false;
   public isDark = !window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-  constructor(
-    private authenticationService: AuthenticationService,
-    private vaultService: VaultService,
-  ) {}
 
   async signIn() {
     try {

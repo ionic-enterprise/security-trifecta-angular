@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle } from '@ionic/angular/standalone';
 import { AgendaService } from '../../services/agenda.service';
@@ -14,18 +14,16 @@ import { AgendaAvatarsComponent } from '../agenda-avatars/agenda-avatars.compone
   imports: [AgendaAvatarsComponent, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle],
 })
 export class AgendaCardComponent implements OnInit {
+  private agendaService = inject(AgendaService);
+  private speakerService = inject(SpeakerService);
+  private companyService = inject(CompanyService);
+  private router = inject(Router);
+
   @Input() id: number;
 
   public agenda: AgendaItem;
   public speakers: Speaker[];
   public photoUrls: string[] = [];
-
-  constructor(
-    private agendaService: AgendaService,
-    private speakerService: SpeakerService,
-    private companyService: CompanyService,
-    private router: Router,
-  ) {}
 
   async ngOnInit() {
     this.agenda = await this.agendaService.getAgendaItem(this.id);

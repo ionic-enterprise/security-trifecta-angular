@@ -1,23 +1,26 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable, NgZone, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { LocalNotifications } from '@capacitor/local-notifications';
 import { AgendaItem } from '../types';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class TalkReminderService  {
-  constructor(private ngZone: NgZone, public router: Router) {
+export class TalkReminderService {
+  private ngZone = inject(NgZone);
+  router = inject(Router);
+
+  constructor() {
     this.configure();
   }
 
   // Navigate the user to the talk they wanted to be reminded about
   async configure() {
-    LocalNotifications.addListener('localNotificationActionPerformed', (notification => {
+    LocalNotifications.addListener('localNotificationActionPerformed', (notification) => {
       this.ngZone.run(() => {
         this.router.navigate([`agenda/${notification.notification.extra.agendaId}`]);
       });
-    }));
+    });
   }
 
   async scheduleReminder(agendaItem: AgendaItem) {
@@ -35,10 +38,10 @@ export class TalkReminderService  {
           body: agendaItem.title,
           schedule: { at: reminderDate },
           extra: {
-            agendaId: agendaItem.id
-          }
-        }
-      ]
+            agendaId: agendaItem.id,
+          },
+        },
+      ],
     });
   }
 }

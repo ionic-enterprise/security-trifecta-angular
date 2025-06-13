@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
 import { IonContent, IonHeader, IonTitle, IonToolbar, ModalController } from '@ionic/angular/standalone';
 import { PermissionsModalComponent } from 'src/app/components/permissions-modal/permissions-modal.component';
@@ -16,15 +16,13 @@ import { AgendaItem } from '../../types';
   imports: [AgendaCardComponent, IonContent, IonHeader, IonTitle, IonToolbar],
 })
 export class Tab1Page implements OnInit {
-  public agenda: AgendaItem[] = [];
+  private agendaService = inject(AgendaService);
+  private modalController = inject(ModalController);
+  private pushNotificationService = inject(PushNotificationService);
+  private companyService = inject(CompanyService);
+  private storageService = inject(StorageService);
 
-  constructor(
-    private agendaService: AgendaService,
-    private modalController: ModalController,
-    private pushNotificationService: PushNotificationService,
-    private companyService: CompanyService,
-    private storageService: StorageService,
-  ) {}
+  public agenda: AgendaItem[] = [];
 
   async ngOnInit() {
     this.presentModal();

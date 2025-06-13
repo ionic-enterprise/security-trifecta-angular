@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { AgendaItem, Company, Speaker, Sponsor } from '../types';
 import { KeyValueStorage } from '@ionic-enterprise/secure-storage/ngx';
@@ -8,12 +8,10 @@ import { KeyService } from './key.service';
   providedIn: 'root',
 })
 export class ApiService {
-  private initialized = false;
+  private secureStorage = inject(KeyValueStorage);
+  private keyService = inject(KeyService);
 
-  constructor(
-    private secureStorage: KeyValueStorage,
-    private keyService: KeyService,
-  ) {}
+  private initialized = false;
 
   public async getSpeakers(): Promise<Speaker[]> {
     return await this.getCached('speakers.json');

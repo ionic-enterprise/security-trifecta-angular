@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   IonButton,
   IonCard,
@@ -38,16 +38,14 @@ import { SwagModalPage } from '../../components/swag-modal/swag-modal.page';
   ],
 })
 export class ProfilePage {
+  modalController = inject(ModalController);
+  private authService = inject(AuthenticationService);
+  private vaultService = inject(VaultService);
+  private routerOutlet = inject(IonRouterOutlet);
+  toastController = inject(ToastController);
+
   public name: string;
   public id: string;
-
-  constructor(
-    public modalController: ModalController,
-    private authService: AuthenticationService,
-    private vaultService: VaultService,
-    private routerOutlet: IonRouterOutlet,
-    public toastController: ToastController,
-  ) {}
 
   async ionViewDidEnter() {
     const token = await this.authService.getAccessToken();

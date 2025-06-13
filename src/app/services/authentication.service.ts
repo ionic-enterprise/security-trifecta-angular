@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { AuthConnect, AuthResult, AzureProvider, ProviderOptions, TokenType } from '@ionic-enterprise/auth';
 import { Platform } from '@ionic/angular';
 import { nativeIonicAuthOptions, webIonicAuthOptions } from '../../environments/environment';
@@ -7,13 +7,13 @@ import { VaultService } from './vault.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
+  private platform = inject(Platform);
+  private routeService = inject(RouteService);
+  private vaultService = inject(VaultService);
+
   private result: AuthResult | undefined;
 
-  constructor(
-    private platform: Platform,
-    private routeService: RouteService,
-    private vaultService: VaultService,
-  ) {
+  constructor() {
     this.init();
   }
 

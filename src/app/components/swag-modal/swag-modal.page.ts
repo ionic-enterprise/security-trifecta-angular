@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, inject } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import {
   IonButton,
@@ -43,15 +43,17 @@ import { HubspotFormData } from '../../types';
   ],
 })
 export class SwagModalPage {
+  private hubspotService = inject(HubspotService);
+  private modalController = inject(ModalController);
+
   @ViewChild('hubspotForm') hubspotForm: NgForm;
 
   public hubspotData: HubspotFormData = new HubspotFormData();
   public states: string[] = [];
 
-  constructor(
-    private hubspotService: HubspotService,
-    private modalController: ModalController,
-  ) {
+  constructor() {
+    const hubspotService = this.hubspotService;
+
     this.states = hubspotService.getStates();
   }
 
