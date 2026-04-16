@@ -1,28 +1,28 @@
 PODS:
-  - Capacitor (7.3.0):
+  - Capacitor (8.3.0):
     - CapacitorCordova
-  - CapacitorApp (7.0.1):
+  - CapacitorApp (8.1.0):
     - Capacitor
-  - CapacitorBrowser (7.0.1):
+  - CapacitorBrowser (8.0.3):
     - Capacitor
-  - CapacitorCordova (7.3.0)
-  - CapacitorHaptics (7.0.1):
+  - CapacitorCordova (8.3.0)
+  - CapacitorHaptics (8.0.2):
     - Capacitor
-  - CapacitorKeyboard (7.0.1):
+  - CapacitorKeyboard (8.0.3):
     - Capacitor
-  - CapacitorLocalNotifications (7.0.1):
+  - CapacitorLocalNotifications (8.0.2):
     - Capacitor
-  - CapacitorPreferences (7.0.1):
+  - CapacitorPreferences (8.0.1):
     - Capacitor
-  - CapacitorPrivacyScreen (1.1.0):
+  - CapacitorPrivacyScreen (2.0.1):
     - Capacitor
-  - CapacitorPushNotifications (7.0.1):
+  - CapacitorPushNotifications (8.0.3):
     - Capacitor
-  - CapacitorSplashScreen (7.0.1):
+  - CapacitorSplashScreen (8.0.1):
     - Capacitor
-  - CapacitorStatusBar (7.0.1):
+  - CapacitorStatusBar (8.0.2):
     - Capacitor
-  - CordovaPlugins (7.3.0):
+  - CordovaPlugins (8.3.0):
     - CapacitorCordova
     - SQLCipher (~> 4.0)
   - Firebase/CoreOnly (10.11.0):
@@ -71,7 +71,7 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.11.1):
     - GoogleUtilities/Logger
-  - IonicEnterpriseAuth (7.1.1):
+  - IonicEnterpriseAuth (8.0.0):
     - Capacitor
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
@@ -146,19 +146,19 @@ EXTERNAL SOURCES:
     :path: "../../node_modules/@ionic-enterprise/auth"
 
 SPEC CHECKSUMS:
-  Capacitor: 8585c18a230122906e114ba5f6325ec65ee1371f
-  CapacitorApp: febecbb9582cb353aed037e18ec765141f880fe9
-  CapacitorBrowser: 6299776d496e968505464884d565992faa20444a
-  CapacitorCordova: 2685f5c43675793b5f06dfd66b3b26268f003b97
-  CapacitorHaptics: 1f1e17041f435d8ead9ff2a34edd592c6aa6a8d6
-  CapacitorKeyboard: 09fd91dcde4f8a37313e7f11bde553ad1ed52036
-  CapacitorLocalNotifications: c2212755b33d2513b8bb325096ce3a64d4039ae3
-  CapacitorPreferences: 6c98117d4d7508034a4af9db64d6b26fc75d7b94
-  CapacitorPrivacyScreen: 3a6a5933b994bda73f46375de59a79109014ddfc
-  CapacitorPushNotifications: 6a2794788c583dd89215f1805ca4bced1b13dbdf
-  CapacitorSplashScreen: 1d67815a422a9b61539c94f283c08ed56667c0fc
-  CapacitorStatusBar: 6e7af040d8fc4dd655999819625cae9c2d74c36f
-  CordovaPlugins: 2cc0c9d1bd7ec4d61fd23d53581eff49d00b2ec4
+  Capacitor: 22e541237135648c9aa736232bb4d2eec35fddcb
+  CapacitorApp: 449ffe26375e96f8aaaee625ac6e01e5c57c8650
+  CapacitorBrowser: c987c73d09d8bd3b5ec13f06338b1e14d5d2be69
+  CapacitorCordova: 2e1e2bb93b2f365309dc4ff18b72b9a69a7814a9
+  CapacitorHaptics: 296f771ecd89c7a1bd92a7b6826a7d268e2e70f5
+  CapacitorKeyboard: 31c8285d92c9d1410071d52449f16d2c6673b6f4
+  CapacitorLocalNotifications: 4db83a7f6bdd2f30dcedf5c6f92c415065467a24
+  CapacitorPreferences: cca2021f386efb75947c850334447d9ff22b14f1
+  CapacitorPrivacyScreen: 9a8367698c7eb6c09f2877ef104a95d2d85d978c
+  CapacitorPushNotifications: e4437b4ec1b2070685bf032c210f346432214c5f
+  CapacitorSplashScreen: 4b46c72298db552b3c57ce021ef028b6dc7f1fa7
+  CapacitorStatusBar: 01d5763b4ed720de5ce2edbc938de6a98f4c8f32
+  CordovaPlugins: a14885f4fcf63f497a7aeb406eb5a6b7fe04c12d
   Firebase: 31d9575c124839fb5abc0db6d39511cc1dab1b85
   FirebaseCore: 62fd4d549f5e3f3bd52b7998721c5fa0557fb355
   FirebaseCoreInternal: 9e46c82a14a3b3a25be4e1e151ce6d21536b89c0
@@ -166,11 +166,11 @@ SPEC CHECKSUMS:
   FirebaseMessaging: 06253e9669434df0a40718fc82a90c78090f4704
   GoogleDataTransport: f0308f5905a745f94fb91fea9c6cbaf3831cb1bd
   GoogleUtilities: 9aa0ad5a7bc171f8bae016300bfcfa3fb8425749
-  IonicEnterpriseAuth: 41fc54aa4739001255f1a56101b9258cc3ea4cd8
+  IonicEnterpriseAuth: 9778c05a08ec5d0e86e40a2da77538f7ea3b9886
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   PromisesObjC: 09985d6d70fbe7878040aa746d78236e6946d2ef
   SQLCipher: 905b145f65f349f26da9e60a19901ad24adcd381
 
-PODFILE CHECKSUM: 7a8784bad4ae427a6cebb1aa245c25cae59f548b
+PODFILE CHECKSUM: 834998a21cf3a846b019e1f3795b261a2d8f48db
 
 COCOAPODS: 1.16.2
